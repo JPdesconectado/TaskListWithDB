@@ -1,4 +1,4 @@
-package ifsc.tasklist;
+package ifsc.tasklist.controllers;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;

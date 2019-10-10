@@ -1,4 +1,4 @@
-package ifsc.tasklist;
+package ifsc.tasklist.controllers;
 
 import java.awt.Desktop;
 import java.io.IOException;

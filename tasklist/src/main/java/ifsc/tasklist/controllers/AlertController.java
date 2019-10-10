@@ -1,4 +1,4 @@
-package ifsc.tasklist;
+package ifsc.tasklist.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -19,7 +19,7 @@ public class Conn {
 
 	private static EntityManagerFactory getEntityManagerFactory() {
 		if (entityManagerFactory == null)
-			entityManagerFactory = Persistence.createEntityManagerFactory("ifsc.tasklist");
+			entityManagerFactory = Persistence.createEntityManagerFactory("ifsc.tasklist.controllers");
 		return entityManagerFactory;
 	}
 

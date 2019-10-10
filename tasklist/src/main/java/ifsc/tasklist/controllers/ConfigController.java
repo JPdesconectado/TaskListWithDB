@@ -1,9 +1,11 @@
-package ifsc.tasklist;
+package ifsc.tasklist.controllers;
 
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+
+import ifsc.tasklist.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

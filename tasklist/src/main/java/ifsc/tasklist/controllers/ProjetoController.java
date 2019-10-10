@@ -1,7 +1,8 @@
-package ifsc.tasklist;
+package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 
+import ifsc.tasklist.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
