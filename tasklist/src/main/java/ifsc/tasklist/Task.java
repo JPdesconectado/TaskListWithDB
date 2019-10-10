@@ -89,6 +89,9 @@ public class Task {
 		return true;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Título: " + titulo + " Descrição: " + descricao + ". Registrado em: " + data + ".";
+	}
 	
 }

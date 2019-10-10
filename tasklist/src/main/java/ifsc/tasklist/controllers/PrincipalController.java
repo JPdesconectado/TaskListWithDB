@@ -1,23 +1,29 @@
 package ifsc.tasklist.controllers;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
-
+import java.util.ResourceBundle;
 import ifsc.tasklist.App;
-import javafx.collections.FXCollections;
+import ifsc.tasklist.Task;
+import ifsc.tasklist.TaskDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class PrincipalController {
+public class PrincipalController implements Initializable{
 	LocalDate data;
+	
+	@FXML
+	GridPane gridpane;
 	
 	@FXML
 	Button btConfig;
@@ -44,45 +50,33 @@ public class PrincipalController {
 	TextField txtSearch;
 
 	@FXML
-	ListView<String> listview;
+	ListView<Task> listTask;
 	
-	private ObservableList<String> list = FXCollections.observableArrayList();;
-	private ObservableList<String> title = FXCollections.observableArrayList();
+
+	public void updateList() {
+		TaskDAO dao = new TaskDAO();
+		listTask.setItems(null);
+		listTask.setItems((ObservableList<Task>) dao.getAll());
+	}
 	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		updateList();
+	}
+	
+	// Mudança de Janelas:
+	@FXML
 	public void novaTarefa() throws IOException {
-		Stage stage = new Stage();
-		listview.setEditable(true);
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("task.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
-		taskController controller = fxmlLoader.getController();
-		controller.setList(list);
-		controller.setTitle(title);
-		title = controller.getTitle();
-		list = controller.getList();
-		listview.setItems(title);
-		listview.setCellFactory(ComboBoxListCell.forListView(list));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
 		stage.show();
 		
-	}
- 	
-	public void irProjeto() throws IOException {
-		Stage stage = new Stage();
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("projeto.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
-		stage.show();
 	}
 	
-	public void pesquisaTarefa() {
-		if(!txtSearch.getText().equals("")) {
-			listview.setItems(getPesquisa());
-		}else {
-			listview.setItems(list);
-		}
-		
-	}
- 	
+	@FXML
 	public void irConfig() throws IOException {
 		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("config.fxml"));
@@ -91,6 +85,16 @@ public class PrincipalController {
 		stage.show();
 	}
 	
+	@FXML
+	public void irProjeto() throws IOException {
+		Stage stage = new Stage();
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("projeto.fxml"));
+		Parent root = (Parent) fxmlLoader.load();
+		stage.setScene(new Scene(root));
+		stage.show();
+	}
+	
+	@FXML
 	public void irMetas() throws IOException {
 		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("metas.fxml"));
@@ -99,14 +103,7 @@ public class PrincipalController {
 		stage.show();
 	}
 	
-	public void irNotification() throws IOException {
-		Stage stage = new Stage();
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notificacao.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
-		stage.show();
-	}
-	
+	@FXML
 	public void irAjuda() throws IOException {
 		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ajuda.fxml"));
@@ -115,15 +112,13 @@ public class PrincipalController {
 		stage.show();
 	}
 	
-	private ObservableList<String> getPesquisa(){
-		ObservableList<String> encontrado = FXCollections.observableArrayList();
-		for (String s: list) {
-			if (s.equals(txtSearch.getText())) {
-				encontrado.add(s);
-			}
-		}
-		
-		return encontrado;
+	@FXML
+	public void irNotification() throws IOException {
+		Stage stage = new Stage();
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notificacao.fxml"));
+		Parent root = (Parent) fxmlLoader.load();
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
 }
 
