@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class PrincipalController implements Initializable{
+public class MainController implements Initializable{
 	LocalDate data;
 	
 	@FXML
@@ -67,7 +67,7 @@ public class PrincipalController implements Initializable{
 	// Mudança de Janelas:
 	@FXML
 	public void novaTarefa() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("task.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("registertask.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
@@ -88,7 +88,7 @@ public class PrincipalController implements Initializable{
 	@FXML
 	public void irProjeto() throws IOException {
 		Stage stage = new Stage();
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("projeto.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
 		Parent root = (Parent) fxmlLoader.load();
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -97,7 +97,7 @@ public class PrincipalController implements Initializable{
 	@FXML
 	public void irMetas() throws IOException {
 		Stage stage = new Stage();
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("metas.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("goals.fxml"));
 		Parent root = (Parent) fxmlLoader.load();
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -106,7 +106,7 @@ public class PrincipalController implements Initializable{
 	@FXML
 	public void irAjuda() throws IOException {
 		Stage stage = new Stage();
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ajuda.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("help.fxml"));
 		Parent root = (Parent) fxmlLoader.load();
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -115,7 +115,7 @@ public class PrincipalController implements Initializable{
 	@FXML
 	public void irNotification() throws IOException {
 		Stage stage = new Stage();
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notificacao.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notification.fxml"));
 		Parent root = (Parent) fxmlLoader.load();
 		stage.setScene(new Scene(root));
 		stage.show();

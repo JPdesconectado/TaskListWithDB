@@ -29,12 +29,12 @@
       </Text>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
          <image>
-            <Image url="@ty.png" />
+            <Image url="@../images/ty.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <image>
-            <Image url="@ty.png" />
+            <Image url="@../images/ty.png" />
          </image>
       </ImageView>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prometemos melhorar nossos serviços." GridPane.columnIndex="1" GridPane.rowIndex="1" />

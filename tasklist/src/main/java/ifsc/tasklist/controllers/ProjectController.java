@@ -14,7 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.stage.Stage;
 
-public class ProjetoController {
+public class ProjectController {
 
 	@FXML
 	Button btNewProject;
@@ -34,7 +34,7 @@ public class ProjetoController {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("newproject.fxml"));
 		Parent root = (Parent) fxmlLoader.load();
 		stage.setScene(new Scene(root));
-		newProjectController controller = fxmlLoader.getController();
+		RegisterProjectController controller = fxmlLoader.getController();
 		controller.setItems(items);
 		controller.setTitle(title);
 		items = controller.getItems();

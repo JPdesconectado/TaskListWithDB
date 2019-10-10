@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
-public class MetasController {
+public class GoalsController {
 
 	@FXML
 	ProgressBar proTasks;

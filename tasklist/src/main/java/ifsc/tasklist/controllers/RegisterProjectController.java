@@ -10,7 +10,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class newProjectController {
+public class RegisterProjectController {
 	private ObservableList<String> title = FXCollections
 	        .observableArrayList();
 	private ObservableList<String> items = FXCollections

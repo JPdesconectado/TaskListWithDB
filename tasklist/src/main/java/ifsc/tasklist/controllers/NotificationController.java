@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
-public class NotificacaoController {
+public class NotificationController {
     Calendar now = Calendar.getInstance();
 	
     @FXML
