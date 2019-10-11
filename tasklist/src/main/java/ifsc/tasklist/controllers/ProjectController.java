@@ -1,51 +1,54 @@
 package ifsc.tasklist.controllers;
 
 import java.io.IOException;
-
+import java.net.URL;
+import java.util.ResourceBundle;
 import ifsc.tasklist.App;
-import javafx.collections.FXCollections;
+import ifsc.tasklist.Project;
+import ifsc.tasklist.ProjectDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class ProjectController {
+public class ProjectController implements Initializable {
 
+	@FXML
+	GridPane gridPane;
+	
 	@FXML
 	Button btNewProject;
 	
 	@FXML
-	Button btVoltar;
+	ListView<Project> listProject;
+	
+	public void updateList() {
+		ProjectDAO dao = new ProjectDAO();
+		listProject.setItems(null);
+		listProject.setItems((ObservableList<Project>) dao.getAll());
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		updateList();
+	}
 	
 	@FXML
-	ListView<String> projectview;
-	
-	private ObservableList<String> title = FXCollections.observableArrayList();
-	private ObservableList<String> items = FXCollections.observableArrayList();
-	
 	public void novoProjeto() throws IOException{
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("registerproject.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
-		projectview.setEditable(true);
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("newproject.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
-		RegisterProjectController controller = fxmlLoader.getController();
-		controller.setItems(items);
-		controller.setTitle(title);
-		items = controller.getItems();
-		title = controller.getTitle();
-		projectview.setItems(title);
-		projectview.setCellFactory(ComboBoxListCell.forListView(items));
+		stage.setScene(scene);
 		stage.show();
 	}
 	
-	public void voltar() {
-		Stage janela = (Stage) btVoltar.getScene().getWindow();
-		janela.close();
-	}
+
+	
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -22,9 +23,7 @@
   </rowConstraints>
    <children>
       <TextField fx:id="titulo" GridPane.columnIndex="1" />
-      <TextField fx:id="tarefa" prefHeight="25.0" prefWidth="257.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <DatePicker fx:id="data" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="70.0" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       <Button fx:id="btAdicionar" mnemonicParsing="false" onAction="#novoProjeto" prefHeight="25.0" prefWidth="70.0" text="Adicionar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Título" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
@@ -37,5 +36,6 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Text>
+      <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
    </children>
 </GridPane>

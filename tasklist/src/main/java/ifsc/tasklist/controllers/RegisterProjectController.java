@@ -2,69 +2,46 @@ package ifsc.tasklist.controllers;
 
 import java.time.LocalDate;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import ifsc.tasklist.Project;
+import ifsc.tasklist.ProjectDAO;
+import ifsc.tasklist.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class RegisterProjectController {
-	private ObservableList<String> title = FXCollections
-	        .observableArrayList();
-	private ObservableList<String> items = FXCollections
-	        .observableArrayList();
+	LocalDate tempo;
 	
 	@FXML
 	TextField titulo;
 	
 	@FXML
-	TextField tarefa;
+	ChoiceBox<Task> tarefa;
 	
 	@FXML
 	DatePicker data;
 	
-	@FXML
-	Button btVoltar;
 	
 	@FXML
 	Button btAdicionar;
 	
 	@FXML
-	
-	public void novoProjeto() {
-		LocalDate ld = data.getValue();	
-		if (!title.contains(titulo.getText())) {
-			title.add(titulo.getText());
-			}
-		if(!items.contains(tarefa.getText())) {
-			items.addAll(tarefa.getText(), ld.toString());
-		}
-		voltar();
-	}
-	
-	public void voltar() {
-		Stage janela = (Stage) btVoltar.getScene().getWindow();
-		janela.close();
-	}
-	
-	public ObservableList<String> getTitle() {
-		return this.title;
-	}
-	
-	public ObservableList<String> getItems(){
-		return this.items;
-	}
-	
-	public void setItems(ObservableList<String> items) {
-		this.items = items;
+	private void adicionar(ActionEvent e) {
+		String taskchoice = tarefa.toString();
 		
+		tempo = data.getValue();
+		Project project = new Project(titulo.getText(), taskchoice, tempo);
+		new ProjectDAO().add(project);
+		Button btn = (Button) e.getSource();
+		Scene scene = btn.getScene();
+		Stage stage = (Stage) scene.getWindow();
+		stage.close();
 	}
-	
-	public void setTitle(ObservableList<String> title) {
-		this.title = title;
-	}
-	
+
 	
 }

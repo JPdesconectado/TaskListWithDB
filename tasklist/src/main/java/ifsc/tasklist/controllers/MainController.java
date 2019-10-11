@@ -77,46 +77,51 @@ public class MainController implements Initializable {
 	
 	@FXML
 	public void irConfig() throws IOException {
-		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("config.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
 		stage.show();
 	}
 	
 	@FXML
 	public void irProjeto() throws IOException {
-		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
 		stage.show();
 	}
 	
 	@FXML
 	public void irMetas() throws IOException {
-		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("goals.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
 		stage.show();
 	}
 	
 	@FXML
 	public void irAjuda() throws IOException {
-		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("help.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
 		stage.show();
 	}
 	
 	@FXML
 	public void irNotification() throws IOException {
-		Stage stage = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notification.fxml"));
-		Parent root = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(root));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
 		stage.show();
 	}
 }

@@ -62,20 +62,20 @@ public class TaskDAO implements DAO<Task>{
 	}
 
 	@Override
-	public void update(Task obj) {
+	public void update(Task tks) {
 		EntityManager entityMng = Conn.getEntityManager();
 		entityMng.getTransaction().begin();
-		Task taskDB = entityMng.find(Task.class, obj.getTitulo());
-		taskDB.setDescricao(obj.getDescricao());
-		taskDB.setData(obj.getData());
+		Task taskDB = entityMng.find(Task.class, tks.getTitulo());
+		taskDB.setDescricao(tks.getDescricao());
+		taskDB.setData(tks.getData());
 		entityMng.getTransaction().commit();
 		entityMng.close();
 
 		if (tasks != null) {
 			for (Task task : tasks) {
-				if (task.getTitulo().contentEquals(obj.getTitulo())) {
-					task.setDescricao(obj.getDescricao());
-					task.setData(obj.getData());
+				if (task.getTitulo().contentEquals(tks.getTitulo())) {
+					task.setDescricao(tks.getDescricao());
+					task.setData(tks.getData());
 				}
 			}
 		}
