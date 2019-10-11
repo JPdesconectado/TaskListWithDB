@@ -1,5 +1,6 @@
 package ifsc.tasklist.controllers;
 
+
 import java.time.LocalDate;
 
 import ifsc.tasklist.Task;
@@ -13,29 +14,36 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class RegisterTaskController {
+public class UpdateTaskController {
 	LocalDate tempo;
 	
 	@FXML
-	Button btAdicionar;
-	
-	@FXML
-	TextField txtTitle;
+	private TextField txtTitulo;
 
 	@FXML
-	TextArea txtDescription;
+	private TextArea txtDescricao;
 	
 	@FXML
-	DatePicker datapega;
+	private DatePicker datapega;
+	
+	private MainController mainController;
 
 	@FXML
-	private void adicionar(ActionEvent e) {
+	private void update(ActionEvent e) {
 		tempo = datapega.getValue();
-		Task task = new Task(txtTitle.getText(), txtDescription.getText(), tempo);
-		new TaskDAO().add(task);
+		Task task = new Task(txtTitulo.getText(), txtDescricao.getText(), tempo);
+		new TaskDAO().update(task);
 		Button btn = (Button) e.getSource();
 		Scene scene = btn.getScene();
 		Stage stage = (Stage) scene.getWindow();
+		mainController.updateList();
 		stage.close();
 	}
+
+	public void selectedTask (Task task, MainController mainController) {
+		txtTitulo.setText(task.getTitulo());
+		txtDescricao.setText(task.getDescricao());
+		this.mainController = mainController;
+	}
+	
 }

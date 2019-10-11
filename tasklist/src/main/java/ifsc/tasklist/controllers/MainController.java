@@ -2,55 +2,32 @@ package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import ifsc.tasklist.App;
 import ifsc.tasklist.Task;
 import ifsc.tasklist.TaskDAO;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class MainController implements Initializable{
-	LocalDate data;
+public class MainController implements Initializable {
 	
 	@FXML
-	GridPane gridpane;
+	private GridPane gridpane;
 	
 	@FXML
-	Button btConfig;
-	
-	@FXML
-	Button btHelp;
-	
-	@FXML
-	Button btProject;
-	
-	@FXML
-	Button btGoals;
-	
-	@FXML
-	Button btNotification;
-	
-	@FXML
-	Button btSearch;
-	
-	@FXML
-	Button btNewTask;
-	
-	@FXML
-	TextField txtSearch;
+	private TextField txtSearch;
 
 	@FXML
-	ListView<Task> listTask;
+	private ListView<Task> listTask;
 	
 
 	public void updateList() {
@@ -64,6 +41,28 @@ public class MainController implements Initializable{
 		updateList();
 	}
 	
+	@FXML
+	private void delete() {
+		new TaskDAO().delete(listTask.getSelectionModel().getSelectedItem());
+	}
+	
+	@FXML
+	private void update() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetask.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+		UpdateTaskController controller = (UpdateTaskController) fxmlLoader.getController();
+		controller.selectedTask(listTask.getSelectionModel().getSelectedItem(), this);
+	}
+	
+	@FXML
+	private void sair() {
+		Platform.exit();
+	}
+
 	// Mudança de Janelas:
 	@FXML
 	public void novaTarefa() throws IOException {

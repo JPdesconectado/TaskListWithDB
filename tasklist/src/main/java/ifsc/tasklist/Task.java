@@ -1,6 +1,6 @@
 package ifsc.tasklist;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Entity;
@@ -20,12 +20,12 @@ public class Task {
 		
 	}
 
-	public Task(String titulo, String descricao) {
+	public Task(String titulo, String descricao, LocalDate data) {
 		super();
 		this.titulo = titulo;
 		this.descricao = descricao;
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		this.data = dtf.format(LocalDateTime.now());
+		this.data = dtf.format(data);
 	}
 
 	public String getTitulo() {
@@ -91,7 +91,7 @@ public class Task {
 	
 	@Override
 	public String toString() {
-		return "Título: " + titulo + " Descrição: " + descricao + ". Registrado em: " + data + ".";
+		return "Título: " + titulo + " Descrição: " + descricao + ". Para o dia: " + data + ".";
 	}
 	
 }
