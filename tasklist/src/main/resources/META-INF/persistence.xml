@@ -7,8 +7,9 @@ version="2.0">
    <description>
 
    </description>
+    <class>ifsc.tasklist.Project</class>
 	<class>ifsc.tasklist.Task</class>
-	<class>ifsc.tasklist.Project</class>
+	
 	
    <properties>
    	<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />

@@ -8,7 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class Project {
 
-	
 	@Id
 	private String titulo;
 	
@@ -92,7 +91,7 @@ public class Project {
 	
 	@Override
 	public String toString() {
-		return "Título: " + titulo + " Tarefas:" + tarefas + ". Para o dia: " + data + ".";
+		return "Título: " + titulo + " Tarefas: " + tarefas + ". Para o dia: " + data + ".";
 	}
 	
 	

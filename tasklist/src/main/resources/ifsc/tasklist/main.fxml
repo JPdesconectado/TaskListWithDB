@@ -33,9 +33,9 @@
             <Insets left="80.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btConfig" mnemonicParsing="false" onAction="#irConfig" text="Configurações" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <Button fx:id="btConfig" mnemonicParsing="false" onAction="#irConfig" text="Configurações" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="135.0" top="10.0" />
+            <Insets top="130.0" />
          </GridPane.margin>
       </Button>
       <Button fx:id="btHelp" mnemonicParsing="false" onAction="#irAjuda" prefHeight="25.0" prefWidth="65.0" text="Ajuda" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
@@ -64,9 +64,9 @@
          </GridPane.margin>
       </Text>
       <ListView fx:id="listTask" prefHeight="393.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-      <Button fx:id="btNotification" mnemonicParsing="false" onAction="#irNotification" text="Notificação" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="btCheckup" mnemonicParsing="false" onAction="#checkup" text="Notificação" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="50.0" />
+            <Insets top="10.0" />
          </GridPane.margin>
       </Button>
       <Button fx:id="btModify" mnemonicParsing="false" onAction="#update" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">

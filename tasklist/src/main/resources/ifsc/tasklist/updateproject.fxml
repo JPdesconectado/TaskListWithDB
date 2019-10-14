@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifsc.tasklist.controllers.RegisterProjectController">
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifsc.tasklist.controllers.UpdateProjectController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,10 +21,10 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField fx:id="titulo" GridPane.columnIndex="1" />
-      <DatePicker fx:id="data" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button fx:id="btAdicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="70.0" text="Adicionar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Título" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <TextField fx:id="txtTitulo" disable="true" editable="false" GridPane.columnIndex="1" />
+      <DatePicker fx:id="datapega" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="btUpdate" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="70.0" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Título da Tarefa:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
@@ -35,6 +35,6 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Text>
-      <TextField fx:id="tarefa" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <TextField fx:id="txtTarefa" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
    </children>
 </GridPane>

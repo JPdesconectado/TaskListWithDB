@@ -21,10 +21,12 @@
   </rowConstraints>
    <children>
       <ListView fx:id="listProject" prefHeight="645.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-      <Button fx:id="btNewProject" mnemonicParsing="false" onAction="#novoProjeto" text="Novo Projeto" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="btNewProject" mnemonicParsing="false" onAction="#novoProjeto" text="Novo Projeto" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Button>
+      <Button fx:id="btDelete" mnemonicParsing="false" onAction="#delete" text="Deletar Projeto" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+      <Button fx:id="btUpdate" mnemonicParsing="false" onAction="#update" text="Editar Projeto" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

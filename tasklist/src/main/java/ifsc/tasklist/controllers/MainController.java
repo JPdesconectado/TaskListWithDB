@@ -2,6 +2,8 @@ package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import ifsc.tasklist.App;
 import ifsc.tasklist.Task;
@@ -13,19 +15,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
-	
+	boolean choice = true;
+	String titulo;
+	String descricao;
 	@FXML
 	private GridPane gridpane;
 	
 	@FXML
 	private TextField txtSearch;
 
+	@FXML
+	private Button btCheckup;
+	
 	@FXML
 	private ListView<Task> listTask;
 	
@@ -34,6 +44,18 @@ public class MainController implements Initializable {
 		TaskDAO dao = new TaskDAO();
 		listTask.setItems(null);
 		listTask.setItems((ObservableList<Task>) dao.getAll());
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String data = dtf.format(LocalDateTime.now());
+		for (Task task: listTask.getItems()) {
+			if(task.getData().contentEquals(data)){
+				titulo = task.getTitulo();
+				descricao = task.getDescricao();
+				btCheckup.setText("Notificações [1]");
+				choice = true;
+				return;
+			}
+			choice = false;
+		}
 	}
 	
 	@Override
@@ -71,6 +93,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
+		updateList();
 		stage.show();
 		
 	}
@@ -116,13 +139,23 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	public void irNotification() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("notification.fxml"));
-		Parent parent = fxmlLoader.load();
-		Scene scene = new Scene(parent);
-		Stage stage = new Stage();
-		stage.setScene(scene);
-		stage.show();
+	public void checkup() throws IOException {
+		
+		if(choice) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Temos Tarefas para Hoje!");
+			alert.setHeaderText("Título da Tarefa: " + titulo);
+			alert.setContentText("Descrição da Tarefa: " + descricao);
+			alert.showAndWait();
+			btCheckup.setText("Notificações");
+		}else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Nenhuma Tarefa Para hoje =(");
+			alert.setHeaderText("Você está livre! Por agora...");
+			alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
+			alert.showAndWait();
+		}
+		
 	}
 }
 

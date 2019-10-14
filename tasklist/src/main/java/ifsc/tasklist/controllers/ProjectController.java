@@ -26,6 +26,12 @@ public class ProjectController implements Initializable {
 	Button btNewProject;
 	
 	@FXML
+	Button btDelete;
+	
+	@FXML
+	Button btUpdate;
+	
+	@FXML
 	ListView<Project> listProject;
 	
 	public void updateList() {
@@ -37,6 +43,23 @@ public class ProjectController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		updateList();
+	}
+	
+	@FXML
+	private void delete() {
+		new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
+	}
+	
+	@FXML
+	private void update() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updateproject.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+		UpdateProjectController controller = (UpdateProjectController) fxmlLoader.getController();
+		controller.selectedProject(listProject.getSelectionModel().getSelectedItem(), this);
 	}
 	
 	@FXML
