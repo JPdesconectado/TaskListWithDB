@@ -1,7 +1,6 @@
 package ifsc.tasklist.controllers;
 
 import java.time.LocalDate;
-
 import ifsc.tasklist.Task;
 import ifsc.tasklist.TaskDAO;
 import javafx.event.ActionEvent;
@@ -30,12 +29,26 @@ public class RegisterTaskController {
 
 	@FXML
 	private void adicionar(ActionEvent e) {
-		tempo = datapega.getValue();
+		if (datapega.getValue() == null) {
+			tempo = LocalDate.now();
+			
+			
+		}else {
+			tempo = datapega.getValue();
+			
+		}
+		
+		if (txtTitle.getText().isBlank()) {
+			txtTitle.setText("Texto Substituto para Chave-Primária");
+		}
+		
+		
 		Task task = new Task(txtTitle.getText(), txtDescription.getText(), tempo);
-		new TaskDAO().add(task);
-		Button btn = (Button) e.getSource();
-		Scene scene = btn.getScene();
-		Stage stage = (Stage) scene.getWindow();
-		stage.close();
+			new TaskDAO().add(task);
+			Button btn = (Button) e.getSource();
+			Scene scene = btn.getScene();
+			Stage stage = (Stage) scene.getWindow();
+			stage.close();
+		
 	}
 }

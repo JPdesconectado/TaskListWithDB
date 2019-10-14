@@ -65,19 +65,29 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void delete() {
-		new TaskDAO().delete(listTask.getSelectionModel().getSelectedItem());
+		if (!listTask.getItems().isEmpty() || listTask.isPressed()) {
+			new TaskDAO().delete(listTask.getSelectionModel().getSelectedItem());
+		}else {
+			System.out.println("NÃO TEM NADA INSERIDO, COMO VAI APAGAR?");
+		}
+		
 	}
 	
 	@FXML
 	private void update() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetask.fxml"));
-		Parent parent = fxmlLoader.load();
-		Scene scene = new Scene(parent);
-		Stage stage = new Stage();
-		stage.setScene(scene);
-		stage.show();
-		UpdateTaskController controller = (UpdateTaskController) fxmlLoader.getController();
-		controller.selectedTask(listTask.getSelectionModel().getSelectedItem(), this);
+		if (!listTask.getItems().isEmpty() || listTask.isPressed()) {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetask.fxml"));
+			Parent parent = fxmlLoader.load();
+			Scene scene = new Scene(parent);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+			UpdateTaskController controller = (UpdateTaskController) fxmlLoader.getController();
+			controller.selectedTask(listTask.getSelectionModel().getSelectedItem(), this);
+		}else {
+			System.out.println("NÃO SELECIONOU NADA, COMO VAI EDITAR?");
+		}
+		
 	}
 	
 	@FXML

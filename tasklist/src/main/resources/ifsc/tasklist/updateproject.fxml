@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -22,19 +21,17 @@
   </rowConstraints>
    <children>
       <TextField fx:id="txtTitulo" disable="true" editable="false" GridPane.columnIndex="1" />
-      <DatePicker fx:id="datapega" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Button fx:id="btUpdate" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="70.0" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Título da Tarefa:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Projeto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Objetivo do Projeto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Text>
-      <TextField fx:id="txtTarefa" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <TextField fx:id="txtObjetivo" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

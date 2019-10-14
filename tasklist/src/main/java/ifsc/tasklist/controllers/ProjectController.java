@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -32,12 +33,17 @@ public class ProjectController implements Initializable {
 	Button btUpdate;
 	
 	@FXML
+	ChoiceBox<String> cb;
+	
+	@FXML
 	ListView<Project> listProject;
 	
 	public void updateList() {
 		ProjectDAO dao = new ProjectDAO();
 		listProject.setItems(null);
 		listProject.setItems((ObservableList<Project>) dao.getAll());
+		cb.setValue(RegisterProjectController.title);
+		cb.getItems().addAll(RegisterProjectController.title);
 	}
 	
 	@Override
@@ -47,11 +53,17 @@ public class ProjectController implements Initializable {
 	
 	@FXML
 	private void delete() {
-		new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
+		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
+			new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
+		}else {
+			System.out.println("NÃO TEM NADA INSERIDO, COMO VAI APAGAR?");
+		}
+		
 	}
 	
 	@FXML
 	private void update() throws IOException {
+		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updateproject.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
@@ -60,6 +72,10 @@ public class ProjectController implements Initializable {
 		stage.show();
 		UpdateProjectController controller = (UpdateProjectController) fxmlLoader.getController();
 		controller.selectedProject(listProject.getSelectionModel().getSelectedItem(), this);
+		}else {
+			System.out.println("NÃO SELECIONOU NADA, COMO VAI EDITAR?");
+		}
+		
 	}
 	
 	@FXML

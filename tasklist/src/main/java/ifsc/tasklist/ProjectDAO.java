@@ -68,16 +68,14 @@ public class ProjectDAO implements DAO<Project>{
 		EntityManager entityMng = Conn.getEntityManager();
 		entityMng.getTransaction().begin();
 		Project projectDB = entityMng.find(Project.class, proj.getTitulo());
-		projectDB.setTarefas(proj.getTarefas());
-		projectDB.setData(proj.getData());
+		projectDB.setObjetivo(proj.getObjetivo());
 		entityMng.getTransaction().commit();
 		entityMng.close();
 
 		if (projects != null) {
 			for (Project project: projects) {
 				if (project.getTitulo().contentEquals(proj.getTitulo())) {
-					project.setTarefas(proj.getTarefas());
-					project.setData(proj.getData());
+					project.setObjetivo(proj.getObjetivo());
 				}
 			}
 		}
