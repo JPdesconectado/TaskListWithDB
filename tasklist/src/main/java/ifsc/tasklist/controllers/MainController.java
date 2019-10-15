@@ -5,10 +5,16 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import javax.persistence.EntityManager;
+
 import ifsc.tasklist.App;
+import ifsc.tasklist.Conn;
+import ifsc.tasklist.Project;
 import ifsc.tasklist.Task;
 import ifsc.tasklist.TaskDAO;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +39,9 @@ public class MainController implements Initializable {
 	@FXML
 	private TextField txtSearch;
 
+	@FXML
+	private Button btSearch;
+	
 	@FXML
 	private Button btCheckup;
 	
@@ -95,6 +104,22 @@ public class MainController implements Initializable {
 		Platform.exit();
 	}
 
+	
+	@FXML
+	private void pesquisar() {
+		
+		if(!txtSearch.getText().isBlank()) {
+			ObservableList<Task> tarefinhas;
+			EntityManager entityMng = Conn.getEntityManager();
+			tarefinhas = FXCollections.observableArrayList(entityMng.find(Task.class, txtSearch.getText()));
+			listTask.setItems(tarefinhas);
+		}else {
+			updateList();
+		}
+		
+	}
+	
+	
 	// Mudança de Janelas:
 	@FXML
 	public void novaTarefa() throws IOException {

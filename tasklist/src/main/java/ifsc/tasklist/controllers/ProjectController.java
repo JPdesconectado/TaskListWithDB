@@ -55,8 +55,9 @@ public class ProjectController implements Initializable {
 	private void delete() {
 		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
 			new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
+			
 		}else {
-			System.out.println("NÃO TEM NADA INSERIDO, COMO VAI APAGAR?");
+			System.out.println("Nada selecionado para deletar.");
 		}
 		
 	}
@@ -72,8 +73,9 @@ public class ProjectController implements Initializable {
 		stage.show();
 		UpdateProjectController controller = (UpdateProjectController) fxmlLoader.getController();
 		controller.selectedProject(listProject.getSelectionModel().getSelectedItem(), this);
+		
 		}else {
-			System.out.println("NÃO SELECIONOU NADA, COMO VAI EDITAR?");
+			System.out.println("Nada selecionado para edição.");
 		}
 		
 	}

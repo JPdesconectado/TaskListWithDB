@@ -23,7 +23,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="btSearch" mnemonicParsing="false" text="Procurar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <Button fx:id="btSearch" mnemonicParsing="false" onAction="#pesquisar" text="Procurar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="10.0" top="10.0" />
          </GridPane.margin>
