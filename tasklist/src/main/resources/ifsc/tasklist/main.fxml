@@ -63,7 +63,7 @@
             <Insets top="40.0" />
          </GridPane.margin>
       </Text>
-      <ListView fx:id="listTask" prefHeight="393.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+      <ListView fx:id="listTask" prefHeight="393.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
       <Button fx:id="btCheckup" mnemonicParsing="false" onAction="#checkup" text="Notificação" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="10.0" />

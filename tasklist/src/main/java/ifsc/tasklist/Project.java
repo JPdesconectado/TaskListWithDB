@@ -1,7 +1,12 @@
 package ifsc.tasklist;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Project {
@@ -9,6 +14,9 @@ public class Project {
 	@Id
 	private String titulo;
 	private String objetivo;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<TarefaProjeto> tarefaprojeto = new ArrayList<>();
 	
 	public Project() {
 		
@@ -36,11 +44,26 @@ public class Project {
 		this.objetivo = objetivo;
 	}
 
+	public void addTarefa(TarefaProjeto tarefa) {
+		if (this.tarefaprojeto == null)
+			this.tarefaprojeto = new ArrayList<TarefaProjeto>();
+		this.tarefaprojeto.add(tarefa);
+	}
+	
+	public List<TarefaProjeto> getTarefaprojeto() {
+		return tarefaprojeto;
+	}
+
+	public void setTarefaprojeto(List<TarefaProjeto> tarefaprojeto) {
+		this.tarefaprojeto = tarefaprojeto;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((objetivo == null) ? 0 : objetivo.hashCode());
+		result = prime * result + ((tarefaprojeto == null) ? 0 : tarefaprojeto.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
@@ -59,6 +82,11 @@ public class Project {
 				return false;
 		} else if (!objetivo.equals(other.objetivo))
 			return false;
+		if (tarefaprojeto == null) {
+			if (other.tarefaprojeto != null)
+				return false;
+		} else if (!tarefaprojeto.equals(other.tarefaprojeto))
+			return false;
 		if (titulo == null) {
 			if (other.titulo != null)
 				return false;
@@ -72,7 +100,4 @@ public class Project {
 		return "Título: " + titulo + " Objetivo: " + objetivo;
 	}
 
-	
-	
-	
 }

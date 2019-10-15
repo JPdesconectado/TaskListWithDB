@@ -7,10 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javax.persistence.EntityManager;
-
 import ifsc.tasklist.App;
 import ifsc.tasklist.Conn;
-import ifsc.tasklist.Project;
 import ifsc.tasklist.Task;
 import ifsc.tasklist.TaskDAO;
 import javafx.application.Platform;
@@ -118,7 +116,6 @@ public class MainController implements Initializable {
 		}
 		
 	}
-	
 	
 	// Mudança de Janelas:
 	@FXML
