@@ -2,7 +2,7 @@ package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
 import ifsc.tasklist.App;
@@ -18,7 +18,7 @@ public class FeedbackController {
 	JFXSlider avaliacao;
 	
 	@FXML
-	JFXComboBox<String> btGostou;
+	JFXCheckBox btGostou;
 	
 	@FXML
 	JFXTextArea comentario;

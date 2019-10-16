@@ -1,12 +1,14 @@
 package ifsc.tasklist.controllers;
 
 import java.time.LocalDate;
+
+import com.jfoenix.controls.JFXButton;
+
 import ifsc.tasklist.Project;
 import ifsc.tasklist.ProjectDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -15,6 +17,8 @@ public class UpdateProjectController {
 
 	LocalDate tempo;
 	
+	@FXML
+	JFXButton btVoltar;
 	
 	@FXML
 	GridPane gridPane;
@@ -31,7 +35,7 @@ public class UpdateProjectController {
 	public void update(ActionEvent e) {
 		Project project = new Project(txtTitulo.getText(), txtObjetivo.getText());
 		new ProjectDAO().update(project);
-		Button btn = (Button) e.getSource();
+		JFXButton btn = (JFXButton) e.getSource();
 		Scene scene = btn.getScene();
 		Stage stage = (Stage) scene.getWindow();
 		projectController.updateList();
@@ -43,4 +47,8 @@ public class UpdateProjectController {
 		this.projectController = projectController;
 	}
 	
+	public void voltar() {
+		Stage janela = (Stage) btVoltar.getScene().getWindow();
+		janela.close();
+	}
 }

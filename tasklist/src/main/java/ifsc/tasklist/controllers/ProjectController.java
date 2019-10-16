@@ -66,11 +66,6 @@ public class ProjectController implements Initializable {
 		updateList();
 	}
 	
-	
-	public void projetinho() {
-		
-	}
-	
 	@FXML
 	public void delete() {
 		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {

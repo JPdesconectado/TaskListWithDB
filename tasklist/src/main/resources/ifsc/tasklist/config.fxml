@@ -4,11 +4,11 @@
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifsc.tasklist.controllers.ConfigController">
   <columnConstraints>
@@ -22,38 +22,50 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text fx:id="att" stroke="BLACK" strokeType="INSIDE" text="Tela de Futuras Atualizações" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-         <GridPane.margin>
-            <Insets bottom="120.0" />
-         </GridPane.margin>
+      <JFXButton fx:id="btFeedback" onAction="#goFeedback" ripplerFill="#142270" style="-fx-background-color: #e7f2f8;" text="Feedback" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="19.0" />
-         </font>
-      </Text>
-      <Text fx:id="disc" strokeType="OUTSIDE" strokeWidth="0.0" text="Aguarde e Confie!" wrappingWidth="107.947265625" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-         <GridPane.margin>
-            <Insets bottom="50.0" />
-         </GridPane.margin>
-      </Text>
-      <Text fx:id="plan" stroke="BLACK" strokeType="INSIDE" text="Experimental" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Font name="Alef Regular" size="12.0" />
+         </font></JFXButton>
+      <Hyperlink fx:id="link" onAction="#goCalendary" style="-fx-background-color: #e7f2f8;" text="Calendário" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
-            <Font size="19.0" />
-         </font>
-         <GridPane.margin>
-            <Insets bottom="100.0" />
-         </GridPane.margin>
-      </Text>
-      <JFXButton fx:id="btFee" onAction="#goFeedback" ripplerFill="#142270" style="-fx-background-color: #40B5F0;" text="Feedback" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Hyperlink fx:id="link" onAction="#goCalendary" text="Calendário" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <font>
-            <Font size="18.0" />
+            <Font name="Alef Regular" size="18.0" />
          </font>
       </Hyperlink>
-      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #40B5F0;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #e7f2f8;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="10.0" top="10.0" />
          </GridPane.margin>
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
       </JFXButton>
-      <JFXToggleButton fx:id="tb" onAction="#darkmode" style="-fx-background-color: #40B5F0;" text="Dark Mode" toggleColor="#ffa384" toggleLineColor="#efe7bc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <JFXToggleButton fx:id="tb" onAction="#darkmode" style="-fx-background-color: #e7f2f8;" text="Dark Mode" toggleColor="#ffa384" toggleLineColor="#efe7bc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></JFXToggleButton>
+      <Label fx:id="att" text="Tela de Futuras Atualizações" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Bold" size="19.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="120.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="disc" text="Aguarde e Confie!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="plan" text="Experimental" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="100.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="Alef Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

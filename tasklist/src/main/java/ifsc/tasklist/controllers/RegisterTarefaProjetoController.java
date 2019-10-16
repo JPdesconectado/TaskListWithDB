@@ -16,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,6 +25,9 @@ public class RegisterTarefaProjetoController implements Initializable{
 	
 	@FXML
 	JFXButton btAdicionar;
+	
+	@FXML
+	JFXButton btVoltar;
 	
 	@FXML
 	TextField txtTitle;
@@ -71,13 +73,18 @@ public class RegisterTarefaProjetoController implements Initializable{
 		
 		TarefaProjeto tp = new TarefaProjeto(txtTitle.getText(), txtDescription.getText(), cb.getValue(), tempo);
 			new TarefaProjetoDAO().add(tp);
-			Button btn = (Button) e.getSource();
+			JFXButton btn = (JFXButton) e.getSource();
 			Scene scene = btn.getScene();
 			Stage stage = (Stage) scene.getWindow();
 			stage.close();
 			Project pj = new Project();
 			pj.addTarefa(tp);
 		
+	}
+	
+	public void voltar() {
+		Stage janela = (Stage) btVoltar.getScene().getWindow();
+		janela.close();
 	}
 	
 }

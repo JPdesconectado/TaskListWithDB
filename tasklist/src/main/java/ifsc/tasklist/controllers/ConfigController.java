@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class ConfigController {
@@ -28,10 +30,25 @@ public class ConfigController {
 	Hyperlink link;
 	
 	@FXML
+	Label att;
+	
+	@FXML
+	Label disc;
+	
+	@FXML
+	Label plan;
+	
+	@FXML
 	
 	public void darkmode() {
 		if (tb.isSelected()) {
 		btVoltar.getScene().getRoot().setStyle("-fx-base:black");
+		att.setStyle("-fx-fill:white");
+		btFeedback.setTextFill(Color.BLACK);
+		btVoltar.setTextFill(Color.BLACK);
+		tb.setTextFill(Color.BLACK);
+		
+		
 		}else {
 			btVoltar.getScene().getRoot().setStyle("-fx-base:white");
 		}

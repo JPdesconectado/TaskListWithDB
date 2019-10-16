@@ -24,18 +24,24 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Hyperlink fx:id="link" onAction="#abrirNavegador" text="Exemplo de Modelos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Hyperlink fx:id="link" onAction="#abrirNavegador" style="-fx-background-color: #e7f2f8;" text="Exemplo de Modelos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></Hyperlink>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Modelos Prontos para utilização" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
       </Text>
       <Label maxHeight="-Infinity" maxWidth="-Infinity" text="2. Lembre-se dos prazos!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="150.0" />
          </GridPane.margin>
          <font>
-            <Font size="18.0" />
+            <Font name="Alef Regular" size="18.0" />
          </font>
       </Label>
       <Label maxHeight="27.0" maxWidth="192.0" prefHeight="27.0" prefWidth="192.0" text="1.  Grave suas tarefas!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -43,7 +49,7 @@
             <Insets bottom="200.0" />
          </GridPane.margin>
          <font>
-            <Font size="18.0" />
+            <Font name="Alef Regular" size="18.0" />
          </font>
       </Label>
       <Label maxHeight="-Infinity" maxWidth="-Infinity" text="3. Revise suas tarefas!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -51,7 +57,7 @@
             <Insets bottom="100.0" />
          </GridPane.margin>
          <font>
-            <Font size="18.0" />
+            <Font name="Alef Regular" size="18.0" />
          </font>
       </Label>
       <Label maxHeight="-Infinity" maxWidth="-Infinity" text="4. Planeje seus projetos!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -59,12 +65,12 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
          <font>
-            <Font size="18.0" />
+            <Font name="Alef Regular" size="18.0" />
          </font>
       </Label>
       <Label maxHeight="-Infinity" maxWidth="-Infinity" text="5. Destaque o que é importante!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font name="Alef Regular" size="18.0" />
          </font></Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
@@ -84,7 +90,7 @@
             <Image url="@../images/tin.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #40B5F0;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #e7f2f8;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="5.0" top="5.0" />
          </GridPane.margin>
