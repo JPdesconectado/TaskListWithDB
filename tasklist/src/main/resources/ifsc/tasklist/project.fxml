@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,9 +9,10 @@
 
 <GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifsc.tasklist.controllers.ProjectController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="184.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="0.0" prefWidth="99.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="512.0" minWidth="10.0" prefWidth="410.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="461.0" minWidth="10.0" prefWidth="279.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -21,20 +21,25 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ListView fx:id="listProject" prefHeight="645.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-      <Button fx:id="btNewProject" mnemonicParsing="false" onAction="#novoProjeto" text="Novo Projeto" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+      <ListView fx:id="listTaskProject" prefHeight="645.0" prefWidth="341.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+      <Button fx:id="btNewProject" mnemonicParsing="false" onAction="#novoProjeto" text="Novo Projeto" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btDelete" mnemonicParsing="false" onAction="#delete" text="Deletar Projeto" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+      <Button fx:id="btDelete" mnemonicParsing="false" onAction="#delete" text="Deletar Projeto" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></Button>
-      <Button fx:id="btUpdate" mnemonicParsing="false" onAction="#update" text="Editar Projeto" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="btUpdate" mnemonicParsing="false" onAction="#update" text="Editar Projeto" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Button>
-      <ChoiceBox fx:id="cb" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="btNewTask" mnemonicParsing="false" onAction="#novaTarefa" text="Nova Tarefa" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <ListView fx:id="listProject" prefHeight="392.0" prefWidth="273.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

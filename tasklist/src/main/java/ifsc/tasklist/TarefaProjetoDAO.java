@@ -36,7 +36,7 @@ public List<TarefaProjeto> getAll() {
 public void add(TarefaProjeto obj) {
 	EntityManager entityMng = Conn.getEntityManager();
 	entityMng.getTransaction().begin();
-	entityMng.persist(tp);
+	entityMng.persist(obj);
 	entityMng.getTransaction().commit();
 	entityMng.close();
 
@@ -70,6 +70,7 @@ public void update(TarefaProjeto obj) {
 	TarefaProjeto tpDB = entityMng.find(TarefaProjeto.class, obj.getTitulo());
 	tpDB.setDescricao(obj.getDescricao());
 	tpDB.setData(obj.getData());
+	tpDB.setProjeto(obj.getProjeto());
 	entityMng.getTransaction().commit();
 	entityMng.close();
 
@@ -78,6 +79,7 @@ public void update(TarefaProjeto obj) {
 			if (tpj.getTitulo().contentEquals(obj.getTitulo())) {
 				tpj.setDescricao(obj.getDescricao());
 				tpj.setData(obj.getData());
+				tpj.setProjeto(obj.getProjeto());
 			}
 		}
 	}

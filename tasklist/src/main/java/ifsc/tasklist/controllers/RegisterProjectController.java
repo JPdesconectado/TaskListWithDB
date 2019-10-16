@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 
 public class RegisterProjectController {
 	
-	public static String title;
-	
 	@FXML
 	TextField titulo;
 	
@@ -24,19 +22,12 @@ public class RegisterProjectController {
 	
 	@FXML
 	private void adicionar(ActionEvent e) {
-		title = titulo.getText();
 		Project project = new Project(titulo.getText(), objetivo.getText());
 		new ProjectDAO().add(project);
 		Button btn = (Button) e.getSource();
 		Scene scene = btn.getScene();
 		Stage stage = (Stage) scene.getWindow();
 		stage.close();
-		teste();
-	}
-	
-	private void teste() {
-		ProjectController p = new ProjectController();
-		p.updateList();
 	}
 
 }

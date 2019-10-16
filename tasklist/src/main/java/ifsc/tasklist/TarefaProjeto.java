@@ -11,17 +11,20 @@ public class TarefaProjeto {
 
 	@Id
 	private String titulo;
+	
 	private String descricao;
+	private String projeto;
 	private String data;
 	
 	public TarefaProjeto() {
 		
 	}
 
-	public TarefaProjeto(String titulo, String descricao, LocalDate data) {
+	public TarefaProjeto(String titulo, String descricao, String projeto, LocalDate data) {
 		super();
 		this.titulo = titulo;
 		this.descricao = descricao;
+		this.projeto = projeto;
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		this.data = dtf.format(data);
 	}
@@ -50,4 +53,18 @@ public class TarefaProjeto {
 		this.data = data;
 	}
 
+	public String getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(String projeto) {
+		this.projeto = projeto;
+	}
+
+	@Override
+	public String toString() {
+		return "TarefaProjeto [titulo=" + titulo + ", projeto=" + projeto + ", data=" + data + "]";
+	}
+
+	
 }
