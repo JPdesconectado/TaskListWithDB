@@ -22,11 +22,14 @@ public class BeginController {
 	
 	@FXML 
 	private void begin() throws IOException {
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
+		Stage janela = (Stage) btBegin.getScene().getWindow();
+		janela.close();
 	}
 }
