@@ -1,13 +1,13 @@
 package ifsc.tasklist.controllers;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class AlertController {
 
 	@FXML
-	Button btEntendido;
+	JFXButton btEntendido;
 	
 	@FXML
 	public void voltar() {

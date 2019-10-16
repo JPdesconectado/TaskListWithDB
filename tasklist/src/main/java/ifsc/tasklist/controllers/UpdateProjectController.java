@@ -17,18 +17,18 @@ public class UpdateProjectController {
 	
 	
 	@FXML
-	private GridPane gridPane;
+	GridPane gridPane;
 	
 	@FXML
-	private TextField txtTitulo;
+	TextField txtTitulo;
 
 	@FXML
-	private TextField txtObjetivo;
+	TextField txtObjetivo;
 	
-	private ProjectController projectController;
+	ProjectController projectController;
 
 	@FXML
-	private void update(ActionEvent e) {
+	public void update(ActionEvent e) {
 		Project project = new Project(txtTitulo.getText(), txtObjetivo.getText());
 		new ProjectDAO().update(project);
 		Button btn = (Button) e.getSource();

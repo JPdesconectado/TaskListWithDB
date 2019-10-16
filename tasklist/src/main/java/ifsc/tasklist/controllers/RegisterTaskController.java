@@ -1,6 +1,8 @@
 package ifsc.tasklist.controllers;
 
 import java.time.LocalDate;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
 import ifsc.tasklist.Task;
 import ifsc.tasklist.TaskDAO;
 import javafx.event.ActionEvent;
@@ -8,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,19 +17,22 @@ public class RegisterTaskController {
 	LocalDate tempo;
 	
 	@FXML
-	Button btAdicionar;
+	JFXButton btAdicionar;
+	
+	@FXML
+	JFXButton btVoltar;
 	
 	@FXML
 	TextField txtTitle;
 
 	@FXML
-	TextArea txtDescription;
+	JFXTextArea txtDescription;
 	
 	@FXML
 	DatePicker datapega;
 
 	@FXML
-	private void adicionar(ActionEvent e) {
+	public void adicionar(ActionEvent e) {
 		if (datapega.getValue() == null) {
 			tempo = LocalDate.now();
 			
@@ -50,5 +54,11 @@ public class RegisterTaskController {
 			Stage stage = (Stage) scene.getWindow();
 			stage.close();
 		
+	}
+	
+	@FXML
+	public void voltar() {
+		Stage janela = (Stage) btVoltar.getScene().getWindow();
+		janela.close();
 	}
 }

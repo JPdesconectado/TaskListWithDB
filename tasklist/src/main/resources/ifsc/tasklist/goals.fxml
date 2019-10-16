@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -34,11 +34,6 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Text>
-      <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
-         <GridPane.margin>
-            <Insets left="5.0" top="5.0" />
-         </GridPane.margin>
-      </Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" onDragDetected="#updateTasks" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@../images/load.gif" />
@@ -49,5 +44,10 @@
             <Image url="@../images/load.gif" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#900404" style="-fx-background-color: #54627B;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </GridPane.margin>
+      </JFXButton>
    </children>
 </GridPane>

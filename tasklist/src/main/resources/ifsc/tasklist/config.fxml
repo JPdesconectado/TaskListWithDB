@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -40,20 +40,20 @@
             <Font size="19.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="80.0" />
+            <Insets bottom="100.0" />
          </GridPane.margin>
       </Text>
-      <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
-         <GridPane.margin>
-            <Insets left="5.0" top="5.0" />
-         </GridPane.margin>
-      </Button>
-      <ToggleButton fx:id="tb" mnemonicParsing="false" onAction="#darkmode" text="Dark Mode" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <JFXButton fx:id="btFee" onAction="#goFeedback" ripplerFill="#142270" style="-fx-background-color: #40B5F0;" text="Feedback" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Hyperlink fx:id="link" onAction="#goCalendary" text="Calendário" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="btFeedback" mnemonicParsing="false" onAction="#goFeedback" text="Feedback" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #40B5F0;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </GridPane.margin>
+      </JFXButton>
+      <JFXToggleButton fx:id="tb" onAction="#darkmode" style="-fx-background-color: #40B5F0;" text="Dark Mode" toggleColor="#ffa384" toggleLineColor="#efe7bc" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

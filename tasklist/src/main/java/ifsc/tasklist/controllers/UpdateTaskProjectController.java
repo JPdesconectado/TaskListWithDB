@@ -4,10 +4,12 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import javax.persistence.EntityManager;
-import com.jfoenix.controls.JFXButton;
+
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+
 import ifsc.tasklist.Conn;
 import ifsc.tasklist.Project;
 import ifsc.tasklist.TarefaProjeto;
@@ -19,25 +21,30 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class RegisterTarefaProjetoController implements Initializable{
+public class UpdateTaskProjectController implements Initializable{
+
 	LocalDate tempo;
 	
 	@FXML
-	JFXButton btAdicionar;
+	GridPane gridPane;
 	
 	@FXML
-	TextField txtTitle;
+	TextField txtTitulo;
 
-	@FXML
-	JFXTextArea txtDescription;
-	
 	@FXML
 	JFXComboBox<String> cb;
 	
 	@FXML
-	DatePicker datapega;
+	JFXTextArea txtDescricao;
+	
+	@FXML
+	private DatePicker datapega;
+	
+	
+	ProjectController projectController;
 	
 	public void updateChoice(){
 		EntityManager em = Conn.getEntityManager();
@@ -47,37 +54,27 @@ public class RegisterTarefaProjetoController implements Initializable{
 		}
 		
 	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		updateChoice();
 		
 	}
-	
 	@FXML
-	public void adicionar(ActionEvent e) {
-		if (datapega.getValue() == null) {
-			tempo = LocalDate.now();
-			
-			
-		}else {
-			tempo = datapega.getValue();
-			
-		}
-		
-		if (txtTitle.getText().isBlank()) {
-			txtTitle.setText("Texto Substituto para Chave-Primária");
-		}
-		
-		
-		TarefaProjeto tp = new TarefaProjeto(txtTitle.getText(), txtDescription.getText(), cb.getValue(), tempo);
-			new TarefaProjetoDAO().add(tp);
-			Button btn = (Button) e.getSource();
-			Scene scene = btn.getScene();
-			Stage stage = (Stage) scene.getWindow();
-			stage.close();
-			Project pj = new Project();
-			pj.addTarefa(tp);
-		
+	public void update(ActionEvent e) {
+		tempo = datapega.getValue();
+		TarefaProjeto tarefaprojeto = new TarefaProjeto(txtTitulo.getText(), txtDescricao.getText(), cb.getValue(), tempo);
+		new TarefaProjetoDAO().update(tarefaprojeto);
+		Button btn = (Button) e.getSource();
+		Scene scene = btn.getScene();
+		Stage stage = (Stage) scene.getWindow();
+		projectController.updateList();
+		stage.close();
 	}
-	
+
+	public void selectedTaskProject (TarefaProjeto tarefaprojeto, ProjectController projectController) {
+		txtTitulo.setText(tarefaprojeto.getTitulo());
+		txtDescricao.setText(tarefaprojeto.getDescricao());
+		this.projectController = projectController;
+	}
 }

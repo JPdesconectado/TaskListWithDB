@@ -5,8 +5,9 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
 import javax.persistence.EntityManager;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
 import ifsc.tasklist.App;
 import ifsc.tasklist.Conn;
 import ifsc.tasklist.Task;
@@ -20,10 +21,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -31,20 +30,21 @@ public class MainController implements Initializable {
 	boolean choice = true;
 	String titulo;
 	String descricao;
-	@FXML
-	private GridPane gridpane;
 	
 	@FXML
-	private TextField txtSearch;
-
-	@FXML
-	private Button btSearch;
+	GridPane gridpane;
 	
 	@FXML
-	private Button btCheckup;
+	TextField txtSearch;
 	
 	@FXML
-	private ListView<Task> listTask;
+	JFXButton btSearch;
+	
+	@FXML
+	JFXButton btCheckup;
+	
+	@FXML
+	JFXListView<Task> listTask;
 	
 
 	public void updateList() {
@@ -71,7 +71,7 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	private void delete() {
+	public void delete() {
 		if (!listTask.getItems().isEmpty() || listTask.isPressed()) {
 			new TaskDAO().delete(listTask.getSelectionModel().getSelectedItem());
 		}else {
@@ -81,7 +81,7 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	private void update() throws IOException {
+	public void update() throws IOException {
 		if (!listTask.getItems().isEmpty() || listTask.isPressed()) {
 			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetask.fxml"));
 			Parent parent = fxmlLoader.load();
@@ -98,13 +98,13 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	private void sair() {
+	public void sair() {
 		Platform.exit();
 	}
 
 	
 	@FXML
-	private void pesquisar() {
+	public void pesquisar() {
 		
 		if(!txtSearch.getText().isBlank()) {
 			ObservableList<Task> tarefinhas;

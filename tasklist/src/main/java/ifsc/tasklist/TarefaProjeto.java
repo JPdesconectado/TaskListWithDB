@@ -63,7 +63,7 @@ public class TarefaProjeto {
 
 	@Override
 	public String toString() {
-		return "TarefaProjeto [titulo=" + titulo + ", projeto=" + projeto + ", data=" + data + "]";
+		return "Título: " + titulo + " Descrição: " + descricao + " Projeto: " + projeto + ". Para o dia: " + data + ".";
 	}
 
 	

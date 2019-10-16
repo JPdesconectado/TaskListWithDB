@@ -1,9 +1,10 @@
 package ifsc.tasklist.controllers;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ public class GoalsController {
 	ProgressBar proProject;
 	
 	@FXML
-	Button btVoltar;
+	JFXButton btVoltar;
 	
 	@FXML
 	

@@ -4,9 +4,8 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 
@@ -16,7 +15,7 @@ public class HelpController {
 	Hyperlink link;
 	
 	@FXML
-	Button btVoltar;
+	JFXButton btVoltar;
 	
 	@FXML
 	

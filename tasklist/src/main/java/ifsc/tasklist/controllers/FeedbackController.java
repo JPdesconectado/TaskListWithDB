@@ -1,34 +1,33 @@
 package ifsc.tasklist.controllers;
 
 import java.io.IOException;
-
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXTextArea;
 import ifsc.tasklist.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class FeedbackController {
 
 	@FXML
-	Slider avaliacao;
+	JFXSlider avaliacao;
 	
 	@FXML
-	CheckBox btGostou;
+	JFXComboBox<String> btGostou;
 	
 	@FXML
-	TextArea comentario;
+	JFXTextArea comentario;
 	
 	@FXML
-	Button btVoltar;
+	JFXButton btVoltar;
 	
 	@FXML
-	Button btEnviar;
+	JFXButton btEnviar;
 	
 	@FXML
 	

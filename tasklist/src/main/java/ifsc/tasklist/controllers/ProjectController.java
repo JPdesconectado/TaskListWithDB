@@ -3,6 +3,8 @@ package ifsc.tasklist.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
 import ifsc.tasklist.App;
 import ifsc.tasklist.Project;
 import ifsc.tasklist.ProjectDAO;
@@ -14,9 +16,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -26,25 +25,31 @@ public class ProjectController implements Initializable {
 	GridPane gridPane;
 	
 	@FXML
-	Button btNewProject;
+	JFXButton btNovoProjeto;
 	
 	@FXML
-	Button btNewTask;
+	JFXButton btNovaTarefa;
 	
 	@FXML
-	Button btDelete;
+	JFXButton btPDelete;
 	
 	@FXML
-	Button btUpdate;
+	JFXButton btPUpdate;
 	
 	@FXML
-	ChoiceBox<String> cb;
+	JFXButton btVoltar;
 	
 	@FXML
-	ListView<TarefaProjeto> listTaskProject;
+	JFXButton btTUpdate;
 	
 	@FXML
-	ListView<Project> listProject;
+	JFXButton btTDelete;
+	
+	@FXML
+	JFXListView<TarefaProjeto> listTaskProject;
+	
+	@FXML
+	JFXListView<Project> listProject;
 	
 	public void updateList() {
 		ProjectDAO dao = new ProjectDAO();
@@ -52,7 +57,7 @@ public class ProjectController implements Initializable {
 		listProject.setItems((ObservableList<Project>) dao.getAll());
 		
 		TarefaProjetoDAO dao2 = new TarefaProjetoDAO();
-		listTaskProject.setId(null);
+		listTaskProject.setItems(null);
 		listTaskProject.setItems((ObservableList<TarefaProjeto>) dao2.getAll());
 	}
 	
@@ -61,8 +66,13 @@ public class ProjectController implements Initializable {
 		updateList();
 	}
 	
+	
+	public void projetinho() {
+		
+	}
+	
 	@FXML
-	private void delete() {
+	public void delete() {
 		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
 			new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
 			
@@ -73,7 +83,14 @@ public class ProjectController implements Initializable {
 	}
 	
 	@FXML
-	private void update() throws IOException {
+	public void Tdelete() {
+		if (!listTaskProject.getItems().isEmpty() || listTaskProject.isPressed()) {
+			new TarefaProjetoDAO().delete(listTaskProject.getSelectionModel().getSelectedItem());
+		}
+	}
+	
+	@FXML
+	public void update() throws IOException {
 		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updateproject.fxml"));
 		Parent parent = fxmlLoader.load();
@@ -88,6 +105,23 @@ public class ProjectController implements Initializable {
 			System.out.println("Nada selecionado para edição.");
 		}
 		
+	}
+	
+	@FXML
+	public void Tupdate() throws IOException{
+		if (!listTaskProject.getItems().isEmpty() || listTaskProject.isPressed()) {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetaskproject.fxml"));
+			Parent parent = fxmlLoader.load();
+			Scene scene = new Scene(parent);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+			UpdateTaskProjectController controller = (UpdateTaskProjectController) fxmlLoader.getController();
+			controller.selectedTaskProject(listTaskProject.getSelectionModel().getSelectedItem(), this);
+			
+		}else {
+			System.out.println("Nada selecionado para edição.");
+		}
 	}
 	
 	@FXML
@@ -110,6 +144,9 @@ public class ProjectController implements Initializable {
 		stage.show();
 	}
 	
-
+	public void voltar() {
+		Stage janela = (Stage) btVoltar.getScene().getWindow();
+		janela.close();
+	}
 	
 }
