@@ -9,6 +9,7 @@ version="2.0">
    </description>
     <class>ifsc.tasklist.Project</class>
 	<class>ifsc.tasklist.Task</class>
+	<class>ifsc.tasklist.TarefaProjeto</class>
 	
 	
    <properties>
