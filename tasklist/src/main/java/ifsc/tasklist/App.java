@@ -27,5 +27,4 @@ public class App extends Application {
 		Conn.closeConn();
 		super.stop();
     }
-
 }

@@ -85,7 +85,7 @@
             <Insets left="222.0" />
          </GridPane.margin>
          <font>
-            <Font name="Alef Regular" size="12.0" />
+            <Font name="Alef Regular" size="12.0" /> 
          </font>
       </JFXButton>
       <JFXButton fx:id="btCheckup" alignment="CENTER_RIGHT" onAction="#checkup" ripplerFill="#74bdcb" style="-fx-background-color: #e7f2f8;" text="Notificação" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">

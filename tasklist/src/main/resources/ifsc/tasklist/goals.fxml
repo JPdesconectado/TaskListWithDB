@@ -24,7 +24,7 @@
   </rowConstraints>
    <children>
       <ProgressBar fx:id="proTasks" prefWidth="200.0" progress="0.0" style="-fx-background-color: #e7f2f8;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ficar nessa tela por 10 segundos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 10 Tarefas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
@@ -33,7 +33,7 @@
          </font>
       </Text>
       <ProgressBar fx:id="proProject" prefWidth="200.0" progress="0.0" style="-fx-background-color: #e7f2f8;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ficar nessa tela por 10 horas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 50 Tarefas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
@@ -41,12 +41,12 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </Text>
-      <ImageView fitHeight="150.0" fitWidth="200.0" onDragDetected="#updateTasks" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@../images/load.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" onDragDetected="#updateProject" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@../images/load.gif" />
          </image>

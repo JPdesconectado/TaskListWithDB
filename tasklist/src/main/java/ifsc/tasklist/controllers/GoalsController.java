@@ -1,15 +1,21 @@
 package ifsc.tasklist.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
-
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import ifsc.tasklist.Task;
+import ifsc.tasklist.TaskDAO;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class GoalsController {
-
+public class GoalsController implements Initializable{
+	Boolean check;
+	
 	@FXML
 	ProgressBar proTasks;
 	
@@ -19,57 +25,39 @@ public class GoalsController {
 	@FXML
 	JFXButton btVoltar;
 	
-	@FXML
+	ObservableList<Task> teste;
 	
-	public void updateTasks() {
-		@SuppressWarnings({ "unchecked", "rawtypes" })
-		Service<Void> servico = new Service() {
-            @SuppressWarnings("rawtypes")
-			@Override
-            protected Task createTask() {
-                return new Task() {
-                    @Override
-                    protected Void call() throws Exception {
-                        Thread.sleep(300);
-                        updateProgress(1, 10);
-                        for (int i = 0; i < 10; i++) {
-                            updateProgress(i + 1, 10);
-                            Thread.sleep(300);
-                        }
-                        return null;
-                    }
-                };
-            }
-        };
-        proTasks.progressProperty().bind(servico.progressProperty());
-        servico.restart();
+	public void update() {
+		TaskDAO dao = new TaskDAO();
+		double j = 0.0;
+		teste = (ObservableList<Task>) dao.getAll();
+		for(int i = 0; i < teste.size(); i++) {
+
+			j += 0.1;
+			proTasks.setProgress(j);
+			
+			if(teste.size() == 4 && check) {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("Temos Tarefas para Hoje!");
+				alert.setHeaderText("Título da Tarefa: ");
+				alert.setContentText("Batata");
+				alert.showAndWait();
+				check = false;
+				break;
+			}
+		}
+		
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		update();
+		
 	}
 	
-	public void updateProject() {
-		@SuppressWarnings({ "unchecked", "rawtypes" })
-		Service<Void> servico = new Service() {
-            @SuppressWarnings("rawtypes")
-			@Override
-            protected Task createTask() {
-                return new Task() {
-                    @Override
-                    protected Void call() throws Exception {
-                        Thread.sleep(300);
-                        updateProgress(1, 36000);
-                        for (int i = 0; i < 36000; i++) {
-                            updateProgress(i + 1, 36000);
-                            Thread.sleep(300);
-                        }
-                        return null;
-                    }
-                };
-            }
-        };
-        proProject.progressProperty().bind(servico.progressProperty());
-        servico.restart();
-	}
 	public void voltar() {
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
 		janela.close();
 	}
+
+	
 }

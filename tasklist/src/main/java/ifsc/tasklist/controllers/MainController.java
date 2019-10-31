@@ -27,7 +27,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
-	boolean choice = true;
+	boolean notify = false;
 	String titulo;
 	String descricao;
 	
@@ -54,14 +54,14 @@ public class MainController implements Initializable {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String data = dtf.format(LocalDateTime.now());
 		for (Task task: listTask.getItems()) {
-			if(task.getData().contentEquals(data)){
-				titulo = task.getTitulo();
-				descricao = task.getDescricao();
-				btCheckup.setText("Notificações [1]");
-				choice = true;
-				return;
-			}
-			choice = false;
+				if(task.getData().contentEquals(data)){
+					titulo = task.getTitulo();
+					descricao = task.getDescricao();
+					btCheckup.setText("Notificações [1]");
+					notify = true;
+					break;
+				}
+				btCheckup.setText("Notificações");
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class MainController implements Initializable {
 		}else {
 			System.out.println("NÃO TEM NADA INSERIDO, COMO VAI APAGAR?");
 		}
-		
+		updateList();
 	}
 	
 	@FXML
@@ -94,7 +94,7 @@ public class MainController implements Initializable {
 		}else {
 			System.out.println("NÃO SELECIONOU NADA, COMO VAI EDITAR?");
 		}
-		
+		updateList();
 	}
 	
 	@FXML
@@ -171,23 +171,27 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	public void checkup() throws IOException {
+	public void checkup(){
 		
-		if(choice) {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Temos Tarefas para Hoje!");
-			alert.setHeaderText("Título da Tarefa: " + titulo);
-			alert.setContentText("Descrição da Tarefa: " + descricao);
-			alert.showAndWait();
-			btCheckup.setText("Notificações");
-		}else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Nenhuma Tarefa Para hoje =(");
-			alert.setHeaderText("Você está livre! Por agora...");
-			alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
-			alert.showAndWait();
+			updateList();
+			if(notify == true) {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("Temos Tarefas para Hoje!");
+				alert.setHeaderText("Título da Tarefa: " + titulo);
+				alert.setContentText("Descrição da Tarefa: " + descricao);
+				alert.showAndWait();
+				notify = false;
+				
+			}else {
+				btCheckup.setText("Notificações");
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Nenhuma Tarefa Para hoje =(");
+				alert.setHeaderText("Você está livre! Por agora...");
+				alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
+				alert.showAndWait();
 		}
 		
 	}
+
 }
 

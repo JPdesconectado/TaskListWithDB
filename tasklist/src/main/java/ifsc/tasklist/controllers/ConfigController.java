@@ -4,19 +4,22 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import ifsc.tasklist.App;
+import ifsc.tasklist.DarkMode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class ConfigController {
+public class ConfigController implements Initializable{
+	public static int teste = 0;
 	
 	@FXML
 	JFXToggleButton tb;
@@ -38,20 +41,29 @@ public class ConfigController {
 	@FXML
 	Label plan;
 	
-	@FXML
-	
-	public void darkmode() {
-		if (tb.isSelected()) {
-		btVoltar.getScene().getRoot().setStyle("-fx-base:black");
-		att.setStyle("-fx-fill:white");
-		btFeedback.setTextFill(Color.BLACK);
-		btVoltar.setTextFill(Color.BLACK);
-		tb.setTextFill(Color.BLACK);
-		
-		
-		}else {
-			btVoltar.getScene().getRoot().setStyle("-fx-base:white");
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		if(teste == 1) {
+			tb.setSelected(true);
+			}else {
+			tb.setSelected(false);
 		}
+			
+	}
+	
+	@FXML
+	public void darkmode(){
+		if (tb.isSelected()) {
+			DarkMode.escolha = true;
+			DarkMode.dm(btVoltar.getScene());
+			teste = 1;
+			
+		}else {
+			DarkMode.escolha = false;
+			teste = 0;
+		}
+		
+		
 	}
 	
 	public void goCalendary() {
@@ -75,4 +87,6 @@ public class ConfigController {
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
 		janela.close();
 	}
+
+	
 }
