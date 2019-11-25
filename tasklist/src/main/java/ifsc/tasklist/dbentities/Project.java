@@ -1,21 +1,12 @@
-package ifsc.tasklist;
+package ifsc.tasklist.dbentities;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-@Entity
 public class Project {
 
-	@Id
 	private String titulo;
 	private String objetivo;
-	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<TarefaProjeto> tarefaprojeto = new ArrayList<>();
 	
 	public Project() {
@@ -57,13 +48,13 @@ public class Project {
 	public void setTarefaprojeto(List<TarefaProjeto> tarefaprojeto) {
 		this.tarefaprojeto = tarefaprojeto;
 	}
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((objetivo == null) ? 0 : objetivo.hashCode());
-		result = prime * result + ((tarefaprojeto == null) ? 0 : tarefaprojeto.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
@@ -81,11 +72,6 @@ public class Project {
 			if (other.objetivo != null)
 				return false;
 		} else if (!objetivo.equals(other.objetivo))
-			return false;
-		if (tarefaprojeto == null) {
-			if (other.tarefaprojeto != null)
-				return false;
-		} else if (!tarefaprojeto.equals(other.tarefaprojeto))
 			return false;
 		if (titulo == null) {
 			if (other.titulo != null)

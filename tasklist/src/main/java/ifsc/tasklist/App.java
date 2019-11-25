@@ -13,7 +13,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-		Conn.getEntityManager().close();
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("begin.fxml"));
 		Parent parent = fxmlLoader.load();
 		scene = new Scene(parent);
@@ -22,9 +21,4 @@ public class App extends Application {
 		stage.show();
 	}
 
-	@Override
-	public void stop() throws Exception {
-		Conn.closeConn();
-		super.stop();
-    }
 }
