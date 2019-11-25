@@ -6,10 +6,10 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import ifsc.tasklist.App;
-import ifsc.tasklist.dbcontrol.ProjectDAO;
-import ifsc.tasklist.dbcontrol.TarefaProjetoDAO;
-import ifsc.tasklist.dbentities.Project;
-import ifsc.tasklist.dbentities.TarefaProjeto;
+import ifsc.tasklist.Project;
+import ifsc.tasklist.ProjectDAO;
+import ifsc.tasklist.TarefaProjeto;
+import ifsc.tasklist.TarefaProjetoDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +20,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class ProjectController implements Initializable {
-	private Thread updateDaemon, updateDaemon2;
-	
+
 	@FXML
 	GridPane gridPane;
 	
@@ -51,30 +50,20 @@ public class ProjectController implements Initializable {
 	
 	@FXML
 	JFXListView<Project> listProject;
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		updateDaemon2 = new Thread(new UpdateDaemonTP(listTaskProject));
-		updateDaemon = new Thread(new UpdateDaemonProject(listProject));
-		updateDaemon2.start();
-		updateDaemon.start();
-		
-	}
-
+	
 	public void updateList() {
 		ProjectDAO dao = new ProjectDAO();
-		TarefaProjetoDAO dao2 = new TarefaProjetoDAO();
 		listProject.setItems(null);
+		listProject.setItems((ObservableList<Project>) dao.getAll());
+		
+		TarefaProjetoDAO dao2 = new TarefaProjetoDAO();
 		listTaskProject.setItems(null);
-		
-		try {
-			listProject.setItems((ObservableList<Project>) dao.getAll());
-			listTaskProject.setItems((ObservableList<TarefaProjeto>) dao2.getAll());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		listTaskProject.setItems((ObservableList<TarefaProjeto>) dao2.getAll());
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		updateList();
 	}
 	
 	@FXML
@@ -150,11 +139,8 @@ public class ProjectController implements Initializable {
 		stage.show();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void voltar() {
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
-		updateDaemon2.stop();
-		updateDaemon.stop();
 		janela.close();
 	}
 	

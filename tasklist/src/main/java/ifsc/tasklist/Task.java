@@ -1,8 +1,14 @@
-package ifsc.tasklist.dbentities;
+package ifsc.tasklist;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Task {
 
-
+	@Id
 	private String titulo;
 	
 	private String descricao;
@@ -13,11 +19,12 @@ public class Task {
 		
 	}
 
-	public Task(String titulo, String descricao, String data) {
+	public Task(String titulo, String descricao, LocalDate data) {
 		super();
 		this.titulo = titulo;
 		this.descricao = descricao;
-		this.data = data;
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		this.data = dtf.format(data);
 	}
 
 	public String getTitulo() {

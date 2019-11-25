@@ -2,17 +2,16 @@ package ifsc.tasklist.controllers;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
+import javax.persistence.EntityManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
-
-import ifsc.tasklist.dbcontrol.ProjectDAO;
-import ifsc.tasklist.dbcontrol.TarefaProjetoDAO;
-import ifsc.tasklist.dbentities.Project;
-import ifsc.tasklist.dbentities.TarefaProjeto;
+import ifsc.tasklist.Conn;
+import ifsc.tasklist.Project;
+import ifsc.tasklist.TarefaProjeto;
+import ifsc.tasklist.TarefaProjetoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,7 +24,6 @@ import javafx.stage.Stage;
 public class UpdateTaskProjectController implements Initializable{
 
 	LocalDate tempo;
-	String dataatt;
 	
 	@FXML
 	JFXButton btVoltar;
@@ -48,33 +46,24 @@ public class UpdateTaskProjectController implements Initializable{
 	
 	ProjectController projectController;
 	
+	public void updateChoice(){
+		EntityManager em = Conn.getEntityManager();
+		List<Project> projects = em.createQuery("select project from Project as project", Project.class).getResultList();
+		for (int j = 0; j < projects.size(); j++) {
+			cb.getItems().add(projects.get(j).getTitulo());
+		}
+		
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		try {
-			List<Project> projects = new ProjectDAO().getAll();
-			for (int j = 0; j < projects.size(); j++) {
-					System.out.println(projects.get(j).getTitulo());
-					cb.getItems().add(projects.get(j).getTitulo());
-					
-				}
-		} catch (Exception e) {
-
-		}
+		updateChoice();
+		
 	}
 	@FXML
 	public void update(ActionEvent e) {
-		if (datapega.getValue() == null) {
-			tempo = LocalDate.now();
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			dataatt = dtf.format(tempo);
-			
-		}else {
-			tempo = datapega.getValue();
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			dataatt = dtf.format(tempo);
-		}
-		TarefaProjeto tarefaprojeto = new TarefaProjeto(txtTitulo.getText(), txtDescricao.getText(), cb.getValue(), dataatt);
+		tempo = datapega.getValue();
+		TarefaProjeto tarefaprojeto = new TarefaProjeto(txtTitulo.getText(), txtDescricao.getText(), cb.getValue(), tempo);
 		new TarefaProjetoDAO().update(tarefaprojeto);
 		JFXButton btn = (JFXButton) e.getSource();
 		Scene scene = btn.getScene();

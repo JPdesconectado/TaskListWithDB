@@ -2,13 +2,18 @@ package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import javax.persistence.EntityManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import ifsc.tasklist.App;
-import ifsc.tasklist.dbcontrol.TaskDAO;
-import ifsc.tasklist.dbentities.Task;
+import ifsc.tasklist.Conn;
+import ifsc.tasklist.Task;
+import ifsc.tasklist.TaskDAO;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,11 +27,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
-<<<<<<< Updated upstream
 	boolean notify = false;
-=======
-	private Thread updateDaemon;
->>>>>>> Stashed changes
 	String titulo;
 	String descricao;
 	
@@ -49,7 +50,6 @@ public class MainController implements Initializable {
 	public void updateList() {
 		TaskDAO dao = new TaskDAO();
 		listTask.setItems(null);
-<<<<<<< Updated upstream
 		listTask.setItems((ObservableList<Task>) dao.getAll());
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String data = dtf.format(LocalDateTime.now());
@@ -62,20 +62,12 @@ public class MainController implements Initializable {
 					break;
 				}
 				btCheckup.setText("Notificações");
-=======
-		try {
-			listTask.setItems((ObservableList<Task>) dao.getAll());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
->>>>>>> Stashed changes
 		}
 	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		updateDaemon = new Thread(new UpdateDaemon(listTask));
-		updateDaemon.start();
+		updateList();
 	}
 	
 	@FXML
@@ -115,6 +107,10 @@ public class MainController implements Initializable {
 	public void pesquisar() {
 		
 		if(!txtSearch.getText().isBlank()) {
+			ObservableList<Task> tarefinhas;
+			EntityManager entityMng = Conn.getEntityManager();
+			tarefinhas = FXCollections.observableArrayList(entityMng.find(Task.class, txtSearch.getText()));
+			listTask.setItems(tarefinhas);
 		}else {
 			updateList();
 		}
@@ -144,7 +140,6 @@ public class MainController implements Initializable {
 		stage.show();
 	}
 	
-	@SuppressWarnings("deprecation")
 	@FXML
 	public void irProjeto() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
@@ -152,7 +147,6 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.stop();
 		stage.show();
 	}
 	
@@ -179,7 +173,6 @@ public class MainController implements Initializable {
 	@FXML
 	public void checkup(){
 		
-<<<<<<< Updated upstream
 			updateList();
 			if(notify == true) {
 				Alert alert = new Alert(AlertType.WARNING);
@@ -198,15 +191,6 @@ public class MainController implements Initializable {
 				alert.showAndWait();
 		}
 		
-=======
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Temos Tarefas para Hoje!");
-			alert.setHeaderText("Título da Tarefa: " + titulo);
-			alert.setContentText("Descrição da Tarefa: " + descricao);
-			alert.showAndWait();
-			btCheckup.setText("Notificações");
-
->>>>>>> Stashed changes
 	}
 
 }

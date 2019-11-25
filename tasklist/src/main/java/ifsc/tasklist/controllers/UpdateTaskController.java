@@ -2,12 +2,9 @@ package ifsc.tasklist.controllers;
 
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import com.jfoenix.controls.JFXButton;
-
-import ifsc.tasklist.dbcontrol.TaskDAO;
-import ifsc.tasklist.dbentities.Task;
+import ifsc.tasklist.Task;
+import ifsc.tasklist.TaskDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -18,7 +15,6 @@ import javafx.stage.Stage;
 
 public class UpdateTaskController {
 	LocalDate tempo;
-	String dataatt;
 	
 	@FXML
 	private JFXButton btVoltar;
@@ -36,23 +32,13 @@ public class UpdateTaskController {
 
 	@FXML
 	private void update(ActionEvent e) {
-		if (datapega.getValue() == null) {
-			tempo = LocalDate.now();
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			dataatt = dtf.format(tempo);
-			
-		}else {
-			tempo = datapega.getValue();
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			dataatt = dtf.format(tempo);
-		}
-		
-		Task task = new Task(txtTitulo.getText(), txtDescricao.getText(), dataatt);
+		tempo = datapega.getValue();
+		Task task = new Task(txtTitulo.getText(), txtDescricao.getText(), tempo);
 		new TaskDAO().update(task);
-		mainController.updateList();
 		JFXButton btn = (JFXButton) e.getSource();
 		Scene scene = btn.getScene();
 		Stage stage = (Stage) scene.getWindow();
+		mainController.updateList();
 		stage.close();
 	}
 

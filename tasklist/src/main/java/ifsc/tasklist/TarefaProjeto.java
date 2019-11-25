@@ -1,8 +1,17 @@
-package ifsc.tasklist.dbentities;
+package ifsc.tasklist;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class TarefaProjeto {
 
+	@Id
 	private String titulo;
+	
 	private String descricao;
 	private String projeto;
 	private String data;
@@ -11,12 +20,13 @@ public class TarefaProjeto {
 		
 	}
 
-	public TarefaProjeto(String titulo, String descricao, String projeto, String data) {
+	public TarefaProjeto(String titulo, String descricao, String projeto, LocalDate data) {
 		super();
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.projeto = projeto;
-		this.data = data;
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		this.data = dtf.format(data);
 	}
 
 	public String getTitulo() {
@@ -50,7 +60,7 @@ public class TarefaProjeto {
 	public void setProjeto(String projeto) {
 		this.projeto = projeto;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Título: " + titulo + ": " + descricao + " Proj: " + projeto + ". Data: " + data + ".";

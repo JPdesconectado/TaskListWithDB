@@ -1,14 +1,12 @@
-package ifsc.tasklist.dbcontrol;
+package ifsc.tasklist;
 
-import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.List;
 
 public interface DAO<T> {
 	
 	public T get(String id);
 	
-	public List<T> getAll() throws UnknownHostException, IOException;
+	public List<T> getAll();
 	
 	public void add(T obj);
 	
