@@ -1,10 +1,11 @@
 package ifsc.tasklist.controllers;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
-import ifsc.tasklist.Task;
-import ifsc.tasklist.TaskDAO;
+import ifsc.tasklist.dbcontrol.TaskDAO;
+import ifsc.tasklist.dbentities.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 public class RegisterTaskController {
 	LocalDate tempo;
+	String dataatt;
 	
 	@FXML
 	JFXButton btAdicionar;
@@ -35,11 +37,13 @@ public class RegisterTaskController {
 	public void adicionar(ActionEvent e) {
 		if (datapega.getValue() == null) {
 			tempo = LocalDate.now();
-			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			dataatt = dtf.format(tempo);
 			
 		}else {
 			tempo = datapega.getValue();
-			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			dataatt = dtf.format(tempo);
 		}
 		
 		if (txtTitle.getText().isBlank()) {
@@ -47,7 +51,7 @@ public class RegisterTaskController {
 		}
 		
 		
-		Task task = new Task(txtTitle.getText(), txtDescription.getText(), tempo);
+		Task task = new Task(txtTitle.getText(), txtDescription.getText(), dataatt);
 			new TaskDAO().add(task);
 			Button btn = (Button) e.getSource();
 			Scene scene = btn.getScene();

@@ -2,18 +2,13 @@ package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import javax.persistence.EntityManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import ifsc.tasklist.App;
-import ifsc.tasklist.Conn;
-import ifsc.tasklist.Task;
-import ifsc.tasklist.TaskDAO;
+import ifsc.tasklist.dbcontrol.TaskDAO;
+import ifsc.tasklist.dbentities.Task;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +22,15 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
+<<<<<<< Updated upstream
 	boolean choice = true;
+=======
+<<<<<<< Updated upstream
+	boolean notify = false;
+=======
+	private Thread updateDaemon;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 	String titulo;
 	String descricao;
 	
@@ -50,10 +53,12 @@ public class MainController implements Initializable {
 	public void updateList() {
 		TaskDAO dao = new TaskDAO();
 		listTask.setItems(null);
+<<<<<<< Updated upstream
 		listTask.setItems((ObservableList<Task>) dao.getAll());
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String data = dtf.format(LocalDateTime.now());
 		for (Task task: listTask.getItems()) {
+<<<<<<< Updated upstream
 			if(task.getData().contentEquals(data)){
 				titulo = task.getTitulo();
 				descricao = task.getDescricao();
@@ -62,12 +67,30 @@ public class MainController implements Initializable {
 				return;
 			}
 			choice = false;
+=======
+				if(task.getData().contentEquals(data)){
+					titulo = task.getTitulo();
+					descricao = task.getDescricao();
+					btCheckup.setText("Notificações [1]");
+					notify = true;
+					break;
+				}
+				btCheckup.setText("Notificações");
+=======
+		try {
+			listTask.setItems((ObservableList<Task>) dao.getAll());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 		}
 	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		updateList();
+		updateDaemon = new Thread(new UpdateDaemon(listTask));
+		updateDaemon.start();
 	}
 	
 	@FXML
@@ -107,10 +130,6 @@ public class MainController implements Initializable {
 	public void pesquisar() {
 		
 		if(!txtSearch.getText().isBlank()) {
-			ObservableList<Task> tarefinhas;
-			EntityManager entityMng = Conn.getEntityManager();
-			tarefinhas = FXCollections.observableArrayList(entityMng.find(Task.class, txtSearch.getText()));
-			listTask.setItems(tarefinhas);
 		}else {
 			updateList();
 		}
@@ -140,6 +159,7 @@ public class MainController implements Initializable {
 		stage.show();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void irProjeto() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
@@ -147,6 +167,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
+		updateDaemon.stop();
 		stage.show();
 	}
 	
@@ -173,6 +194,7 @@ public class MainController implements Initializable {
 	@FXML
 	public void checkup() throws IOException {
 		
+<<<<<<< Updated upstream
 		if(choice) {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Temos Tarefas para Hoje!");
@@ -186,8 +208,36 @@ public class MainController implements Initializable {
 			alert.setHeaderText("Você está livre! Por agora...");
 			alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
 			alert.showAndWait();
+=======
+<<<<<<< Updated upstream
+			updateList();
+			if(notify == true) {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("Temos Tarefas para Hoje!");
+				alert.setHeaderText("Título da Tarefa: " + titulo);
+				alert.setContentText("Descrição da Tarefa: " + descricao);
+				alert.showAndWait();
+				notify = false;
+				
+			}else {
+				btCheckup.setText("Notificações");
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Nenhuma Tarefa Para hoje =(");
+				alert.setHeaderText("Você está livre! Por agora...");
+				alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
+				alert.showAndWait();
+>>>>>>> Stashed changes
 		}
 		
+=======
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Temos Tarefas para Hoje!");
+			alert.setHeaderText("Título da Tarefa: " + titulo);
+			alert.setContentText("Descrição da Tarefa: " + descricao);
+			alert.showAndWait();
+			btCheckup.setText("Notificações");
+
+>>>>>>> Stashed changes
 	}
 }
 

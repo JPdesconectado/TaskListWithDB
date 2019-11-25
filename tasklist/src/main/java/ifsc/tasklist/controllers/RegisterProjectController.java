@@ -1,8 +1,9 @@
 package ifsc.tasklist.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import ifsc.tasklist.Project;
-import ifsc.tasklist.ProjectDAO;
+
+import ifsc.tasklist.dbcontrol.ProjectDAO;
+import ifsc.tasklist.dbentities.Project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
