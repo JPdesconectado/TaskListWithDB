@@ -15,22 +15,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
-<<<<<<< Updated upstream
-	boolean choice = true;
-=======
-<<<<<<< Updated upstream
-	boolean notify = false;
-=======
 	private Thread updateDaemon;
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
 	String titulo;
 	String descricao;
 	
@@ -53,37 +44,12 @@ public class MainController implements Initializable {
 	public void updateList() {
 		TaskDAO dao = new TaskDAO();
 		listTask.setItems(null);
-<<<<<<< Updated upstream
-		listTask.setItems((ObservableList<Task>) dao.getAll());
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		String data = dtf.format(LocalDateTime.now());
-		for (Task task: listTask.getItems()) {
-<<<<<<< Updated upstream
-			if(task.getData().contentEquals(data)){
-				titulo = task.getTitulo();
-				descricao = task.getDescricao();
-				btCheckup.setText("Notificações [1]");
-				choice = true;
-				return;
-			}
-			choice = false;
-=======
-				if(task.getData().contentEquals(data)){
-					titulo = task.getTitulo();
-					descricao = task.getDescricao();
-					btCheckup.setText("Notificações [1]");
-					notify = true;
-					break;
-				}
-				btCheckup.setText("Notificações");
-=======
 		try {
 			listTask.setItems((ObservableList<Task>) dao.getAll());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
 		}
 	}
 	
@@ -194,50 +160,6 @@ public class MainController implements Initializable {
 	@FXML
 	public void checkup() throws IOException {
 		
-<<<<<<< Updated upstream
-		if(choice) {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Temos Tarefas para Hoje!");
-			alert.setHeaderText("Título da Tarefa: " + titulo);
-			alert.setContentText("Descrição da Tarefa: " + descricao);
-			alert.showAndWait();
-			btCheckup.setText("Notificações");
-		}else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Nenhuma Tarefa Para hoje =(");
-			alert.setHeaderText("Você está livre! Por agora...");
-			alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
-			alert.showAndWait();
-=======
-<<<<<<< Updated upstream
-			updateList();
-			if(notify == true) {
-				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Temos Tarefas para Hoje!");
-				alert.setHeaderText("Título da Tarefa: " + titulo);
-				alert.setContentText("Descrição da Tarefa: " + descricao);
-				alert.showAndWait();
-				notify = false;
-				
-			}else {
-				btCheckup.setText("Notificações");
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Nenhuma Tarefa Para hoje =(");
-				alert.setHeaderText("Você está livre! Por agora...");
-				alert.setContentText("Brincadeira, mas não tem tarefas, experimente adicionar algumas =D");
-				alert.showAndWait();
->>>>>>> Stashed changes
-		}
-		
-=======
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Temos Tarefas para Hoje!");
-			alert.setHeaderText("Título da Tarefa: " + titulo);
-			alert.setContentText("Descrição da Tarefa: " + descricao);
-			alert.showAndWait();
-			btCheckup.setText("Notificações");
-
->>>>>>> Stashed changes
 	}
 }
 

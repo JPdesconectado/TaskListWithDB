@@ -21,17 +21,4 @@ public class App extends Application {
 		stage.show();
 	}
 
-<<<<<<< Updated upstream
-	@Override
-	public void stop() throws Exception {
-		Conn.closeConn();
-		super.stop();
-    }
-<<<<<<< Updated upstream
-
-=======
-=======
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 }
