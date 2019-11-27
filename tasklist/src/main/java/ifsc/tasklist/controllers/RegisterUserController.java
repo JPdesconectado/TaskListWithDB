@@ -33,7 +33,6 @@ public class RegisterUserController{
 	@FXML
 	JFXButton btCadastrar;
 	
-	ListView<User> listUser;
 	FileChooser fc = new FileChooser();
 	Stage janela;
 	String valor = null;
@@ -41,7 +40,7 @@ public class RegisterUserController{
 	@FXML
 	void register(ActionEvent e) {
 		if (valor == null) {
-			User user = new User(txtUser.getText(), txtEmail.getText(), txtPass.getText(), "oi");
+			User user = new User(txtUser.getText(), txtEmail.getText(), txtPass.getText(), "sin.jpg");
 			new UserDAO().add(user);
 			JFXButton btn = (JFXButton) e.getSource();
 			Scene scene = btn.getScene();

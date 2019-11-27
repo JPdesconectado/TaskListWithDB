@@ -16,7 +16,7 @@ public class User {
 		this.usuario = usuario;
 		this.email = email;
 		this.senha = senha;
-		this.imagem = "sil.jpg";
+		this.imagem = imagem;
 	}
 	
 	public String getUsuario() {
@@ -97,7 +97,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "Usuário: " + usuario + ", senha: " + "********";
+		return "Usuário: " + usuario + ", email: " + email + "senha: " + senha;
 	}
 	
 	

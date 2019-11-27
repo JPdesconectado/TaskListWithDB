@@ -19,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class BeginController implements Initializable{
+	
 	private Thread updateDaemon;
 	@FXML
 	GridPane gridpane;
@@ -36,7 +37,7 @@ public class BeginController implements Initializable{
 	JFXButton btCadastrar;
 	
 	@FXML
-	JFXListView<User> listUser = null;
+	JFXListView<User> listUser;
 	
 	@FXML
 	private void register() throws IOException{
@@ -50,6 +51,7 @@ public class BeginController implements Initializable{
 	
 	@FXML
 	private void begin() throws IOException {
+		System.out.println(listUser.getItems().size());
 		for (int i = 0; i < listUser.getItems().size(); i++) {
 			if (listUser.getItems().get(i).getUsuario().equals(txtUser.getText()) && listUser.getItems().get(i).getSenha().equals(txtPass.getText())) {
 				FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
@@ -59,8 +61,12 @@ public class BeginController implements Initializable{
 				stage.setScene(scene);
 				stage.show();
 				break;
-			}		
+			}else {
+				System.out.println("Usuário ou Senha Inválido, tente novamente.");
+			}
+			System.out.println("Tentei :c");
 		}
+		System.out.println("N consigo :c");
 			
 		
 	}
