@@ -28,7 +28,7 @@ public class UpdateDaemonUser implements Runnable {
 				Thread.sleep(5000);
 			} catch (Exception e) {
 				try {
-					Thread.sleep(5000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e1) {
 				}
 			}

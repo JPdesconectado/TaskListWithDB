@@ -78,6 +78,6 @@
             <Insets top="100.0" />
          </GridPane.margin>
       </TextField>
-      <JFXListView fx:id="listUser" disable="true" opacity="0.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <JFXListView fx:id="listUser" GridPane.columnIndex="5" GridPane.rowIndex="1" />
    </children>
 </GridPane>

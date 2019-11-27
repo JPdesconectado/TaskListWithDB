@@ -1,27 +1,23 @@
 package ifsc.tasklist.controllers;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
-
-import ifsc.tasklist.dbcontrol.UserDAO;
 import ifsc.tasklist.dbentities.User;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class PerfilController implements Initializable{
-
+public class PerfilController  implements Initializable{
+	private Thread updateDaemon;
+	
 	@FXML
 	GridPane gridpane;
 	
@@ -43,7 +39,8 @@ public class PerfilController implements Initializable{
 	@FXML
 	ImageView imgview;
 	
-	ObservableList<User> listUser;
+	@FXML
+	ListView<User> listUser;
 	
 	FileChooser fc = new FileChooser();
 	
@@ -62,13 +59,18 @@ public class PerfilController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		UserDAO dao = new UserDAO();
-		try {
-			listUser.add((User) dao.getAll());
-		} catch (Exception e) {
-		}
+		updateDaemon = new Thread(new UpdateDaemonUser(listUser));
+		updateDaemon.start();
 		
+		for (int i = 0; i < listUser.getItems().size(); i++) {
+			System.out.println("Tururu");
+			Image image = new Image(listUser.getItems().get(i).getImagem());
+			imgview.setImage(image);
+			break;
+		}
 	}
-	
 
 }
+
+	
+

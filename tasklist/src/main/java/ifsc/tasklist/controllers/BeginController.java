@@ -3,10 +3,8 @@ package ifsc.tasklist.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
-
 import ifsc.tasklist.App;
 import ifsc.tasklist.dbentities.User;
 import javafx.fxml.FXML;
@@ -19,8 +17,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class BeginController implements Initializable{
-	
 	private Thread updateDaemon;
+	
 	@FXML
 	GridPane gridpane;
 	
@@ -51,7 +49,6 @@ public class BeginController implements Initializable{
 	
 	@FXML
 	private void begin() throws IOException {
-		System.out.println(listUser.getItems().size());
 		for (int i = 0; i < listUser.getItems().size(); i++) {
 			if (listUser.getItems().get(i).getUsuario().equals(txtUser.getText()) && listUser.getItems().get(i).getSenha().equals(txtPass.getText())) {
 				FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
@@ -64,10 +61,9 @@ public class BeginController implements Initializable{
 			}else {
 				System.out.println("Usuário ou Senha Inválido, tente novamente.");
 			}
-			System.out.println("Tentei :c");
-		}
-		System.out.println("N consigo :c");
 			
+		}
+		
 		
 	}
 
