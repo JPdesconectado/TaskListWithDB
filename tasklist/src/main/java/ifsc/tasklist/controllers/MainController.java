@@ -38,6 +38,9 @@ public class MainController implements Initializable {
 	JFXButton btCheckup;
 	
 	@FXML
+	JFXButton btPerfil;
+	
+	@FXML
 	JFXListView<Task> listTask;
 	
 
@@ -150,6 +153,16 @@ public class MainController implements Initializable {
 	@FXML
 	public void irAjuda() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("help.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	@FXML
+	public void irPerfil() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("perfil.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();

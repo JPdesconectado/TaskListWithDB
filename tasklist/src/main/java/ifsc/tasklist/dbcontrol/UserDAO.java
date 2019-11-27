@@ -31,7 +31,7 @@ public class UserDAO implements DAO<User> {
 
 			if (!msg.contains("404")) {
 				String[] splitResult = msg.split(";");
-				user = new User(splitResult[0],  splitResult[1]);
+				user = new User(splitResult[0],  splitResult[1], splitResult[2], splitResult[3]);
 			}
 
 			in.close();
@@ -59,9 +59,9 @@ public class UserDAO implements DAO<User> {
 			String[] splitResult = msg.split(";");
 			int userIndex = 0;
 			while (userIndex < splitResult.length) {
-				User user = new User(splitResult[userIndex], splitResult[userIndex + 1]);
+				User user = new User(splitResult[userIndex], splitResult[userIndex + 1], splitResult[userIndex + 2], splitResult[userIndex + 3]);
 				users.add(user);
-				userIndex += 2;
+				userIndex += 4;
 			}
 		}
 		in.close();
@@ -75,7 +75,7 @@ public class UserDAO implements DAO<User> {
 		try {
 			Socket server = new Socket(ipServer, portServer);
 			ObjectOutputStream out = new ObjectOutputStream(server.getOutputStream());
-			out.writeUTF("user;" + operation + ";" + user.getUsuario() + ";" + user.getSenha());
+			out.writeUTF("user;" + operation + ";" + user.getUsuario() + ";" + user.getEmail() + ";" + user.getSenha() + ";" + user.getImagem());
 			out.flush();
 			out.close();
 			server.close();

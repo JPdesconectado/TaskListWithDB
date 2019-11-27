@@ -1,5 +1,5 @@
 package ifsc.tasklist.controllers;
 
-public class RegisterController {
+public class LoadingController {
 
 }

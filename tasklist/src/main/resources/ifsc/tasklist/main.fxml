@@ -106,5 +106,10 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </TextField>
+      <JFXButton fx:id="btPerfil" alignment="CENTER_RIGHT" onAction="#irPerfil" ripplerFill="#74bdcb" style="-fx-background-color: #e7f2f8;" text="Perfil" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </GridPane>
