@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -78,6 +77,5 @@
             <Insets top="100.0" />
          </GridPane.margin>
       </TextField>
-      <JFXListView fx:id="listUser" GridPane.columnIndex="5" GridPane.rowIndex="1" />
    </children>
 </GridPane>

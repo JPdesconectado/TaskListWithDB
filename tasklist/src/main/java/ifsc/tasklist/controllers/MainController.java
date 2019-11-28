@@ -2,6 +2,8 @@ package ifsc.tasklist.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.List;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
@@ -9,6 +11,7 @@ import ifsc.tasklist.App;
 import ifsc.tasklist.dbcontrol.TaskDAO;
 import ifsc.tasklist.dbentities.Task;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -96,11 +99,21 @@ public class MainController implements Initializable {
 
 	
 	@FXML
-	public void pesquisar() {
+	public void pesquisar() throws UnknownHostException, IOException, InterruptedException {
 		
 		if(!txtSearch.getText().isBlank()) {
+			List<Task> tasks = new TaskDAO().getAll();
+			for(int i = 0; i < tasks.size(); i++) {
+				if(tasks.get(i).getTitulo().equals(txtSearch.getText())) {
+					ObservableList<Task> tarefinhas =FXCollections.observableArrayList();
+					tarefinhas.add(tasks.get(i));
+					listTask.setItems(tarefinhas);
+					updateDaemon.suspend();
+				}
+			}
 		}else {
 			updateList();
+			updateDaemon.resume();
 		}
 		
 	}
@@ -118,6 +131,7 @@ public class MainController implements Initializable {
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void irConfig() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("config.fxml"));
@@ -125,6 +139,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
+		updateDaemon.stop();
 		stage.show();
 	}
 	
@@ -140,16 +155,19 @@ public class MainController implements Initializable {
 		stage.show();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void irMetas() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("goals.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
+		updateDaemon.stop();
 		stage.setScene(scene);
 		stage.show();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void irAjuda() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("help.fxml"));
@@ -157,9 +175,11 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
+		updateDaemon.stop();
 		stage.show();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void irPerfil() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("perfil.fxml"));
@@ -167,6 +187,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
+		updateDaemon.stop();
 		stage.show();
 	}
 	

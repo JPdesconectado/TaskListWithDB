@@ -39,7 +39,7 @@ public class RegisterUserController{
 	@FXML
 	void register(ActionEvent e) {
 		if (valor == null) {
-			User user = new User(txtUser.getText(), txtEmail.getText(), txtPass.getText(), "sin.jpg");
+			User user = new User(txtUser.getText(), txtEmail.getText(), txtPass.getText(), "file:/C:/Users/Shino/Documents/GitHub/TaskListWithDB/tasklist/src/main/resources/ifsc/images/sil.jpg");
 			new UserDAO().add(user);
 			JFXButton btn = (JFXButton) e.getSource();
 			Scene scene = btn.getScene();

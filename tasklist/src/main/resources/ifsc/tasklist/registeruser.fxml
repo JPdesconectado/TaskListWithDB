@@ -40,14 +40,14 @@
             <Insets />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="txtPass" promptText="Senha" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-         <GridPane.margin>
-            <Insets bottom="50.0" />
-         </GridPane.margin>
-      </TextField>
       <TextField fx:id="txtEmail" promptText="Email" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="txtPass" promptText="Senha" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="50.0" />
          </GridPane.margin>
       </TextField>
       <JFXButton fx:id="btUp" onAction="#upImage" style="-fx-background-color: #FFA384;" text="Enviar Imagem" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
