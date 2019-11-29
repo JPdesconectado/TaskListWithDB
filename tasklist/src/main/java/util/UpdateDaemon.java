@@ -1,4 +1,4 @@
-package ifsc.tasklist.controllers;
+package util;
 
 import java.util.List;
 import ifsc.tasklist.dbcontrol.TaskDAO;

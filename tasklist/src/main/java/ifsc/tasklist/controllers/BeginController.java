@@ -49,7 +49,7 @@ public class BeginController{
 		for (int i = 0; i < users.size(); i++) {
 			
 			if (users.get(i).getUsuario().equals(txtUser.getText()) && users.get(i).getSenha().equals(txtPass.getText())) {
-				FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
+				FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("loading.fxml"));
 				Parent parent = fxmlLoader.load();
 				Scene scene = new Scene(parent);
 				Stage stage = new Stage();

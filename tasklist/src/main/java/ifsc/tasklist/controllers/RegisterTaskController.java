@@ -1,5 +1,7 @@
 package ifsc.tasklist.controllers;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import com.jfoenix.controls.JFXButton;
@@ -32,9 +34,9 @@ public class RegisterTaskController {
 	
 	@FXML
 	DatePicker datapega;
-
+	
 	@FXML
-	public void adicionar(ActionEvent e) {
+	public void adicionar(ActionEvent e) throws UnknownHostException, IOException {
 		if (datapega.getValue() == null) {
 			tempo = LocalDate.now();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");

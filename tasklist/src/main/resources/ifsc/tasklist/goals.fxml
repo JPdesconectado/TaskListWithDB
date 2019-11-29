@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -23,7 +21,6 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ProgressBar fx:id="proTasks" prefWidth="200.0" progress="0.0" style="-fx-background-color: #e7f2f8;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 10 Tarefas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
@@ -32,8 +29,7 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </Text>
-      <ProgressBar fx:id="proProject" prefWidth="200.0" progress="0.0" style="-fx-background-color: #e7f2f8;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 50 Tarefas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 10 Projetos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
@@ -41,17 +37,7 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </Text>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-         <image>
-            <Image url="@../images/load.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-         <image>
-            <Image url="@../images/load.gif" />
-         </image>
-      </ImageView>
-      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#900404" style="-fx-background-color: #e7f2f8;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#ffc1ac" style="-fx-background-color: #FFA384;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="5.0" top="5.0" />
          </GridPane.margin>
@@ -59,5 +45,7 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </JFXButton>
+      <JFXProgressBar fx:id="proProject" prefHeight="13.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <JFXProgressBar fx:id="proTasks" prefHeight="13.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

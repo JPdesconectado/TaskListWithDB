@@ -18,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import util.UpdateDaemonProject;
+import util.UpdateDaemonTP;
 
 public class ProjectController implements Initializable {
 	private Thread updateDaemon, updateDaemon2;

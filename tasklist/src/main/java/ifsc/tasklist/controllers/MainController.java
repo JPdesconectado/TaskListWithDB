@@ -13,14 +13,17 @@ import ifsc.tasklist.dbentities.Task;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import util.UpdateDaemon;
 
 public class MainController implements Initializable {
 
@@ -92,12 +95,15 @@ public class MainController implements Initializable {
 		updateList();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void sair() {
 		Platform.exit();
+		updateDaemon.stop();
 	}
 
 	
+	@SuppressWarnings("deprecation")
 	@FXML
 	public void pesquisar() throws UnknownHostException, IOException, InterruptedException {
 		
@@ -181,11 +187,15 @@ public class MainController implements Initializable {
 	
 	@SuppressWarnings("deprecation")
 	@FXML
-	public void irPerfil() throws IOException {
+	public void irPerfil(ActionEvent e) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("perfil.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
+		Button btn = (Button) e.getSource();
+		Scene scene2 = btn.getScene();
+		Stage stage2 = (Stage) scene2.getWindow();
+		stage2.close();
 		stage.setScene(scene);
 		updateDaemon.stop();
 		stage.show();
