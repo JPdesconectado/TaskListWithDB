@@ -48,7 +48,6 @@ public class RegisterTarefaProjetoController implements Initializable{
 		try {
 			List<Project> projects = new ProjectDAO().getAll();
 			for (int j = 0; j < projects.size(); j++) {
-					System.out.println(projects.get(j).getTitulo());
 					cb.getItems().add(projects.get(j).getTitulo());
 					
 				}

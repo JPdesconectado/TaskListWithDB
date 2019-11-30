@@ -19,7 +19,7 @@ public class GoalsDAO implements DAO<Goals>{
 
 	@Override
 	public Goals get(String id) {
-		Goals goal = null;
+		Goals goals = null;
 		try {
 			Socket server = new Socket(ipServer, portServer);
 
@@ -32,7 +32,7 @@ public class GoalsDAO implements DAO<Goals>{
 
 			if (!msg.contains("404")) {
 				String[] splitResult = msg.split(";");
-				goal = new Goals(splitResult[0], splitResult[1], splitResult[2], splitResult[3], Integer.valueOf(splitResult[4]));
+				goals = new Goals(splitResult[0], splitResult[1], splitResult[2], splitResult[3], Integer.valueOf(splitResult[4]));
 			}
 
 			in.close();
@@ -41,7 +41,7 @@ public class GoalsDAO implements DAO<Goals>{
 		} catch (Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
-		return goal;
+		return goals;
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class GoalsDAO implements DAO<Goals>{
 		try {
 			Socket server = new Socket(ipServer, portServer);
 			ObjectOutputStream out = new ObjectOutputStream(server.getOutputStream());
-			out.writeUTF("goal;" + operation + ";" + goal.getNomeUser() + ";" + goal.getMetaTarefaCumprida() + ";" + goal.getMetaProjetoCumprida() + ";" + 
+			out.writeUTF("goals;" + operation + ";" + goal.getNomeUser() + ";" + goal.getMetaTarefaCumprida() + ";" + goal.getMetaProjetoCumprida() + ";" + 
 			goal.getMetaTPCumprida() + ";" + goal.getObjDiario());
 			out.flush();
 			out.close();

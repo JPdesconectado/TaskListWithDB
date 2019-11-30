@@ -23,7 +23,7 @@ public class UpdateDaemon implements Runnable {
 					listViewTask.setItems(null);
 					listViewTask.setItems((ObservableList<Task>) tasks);
 				});
-				System.out.println("O daemon atualizou os Tarefas");
+				System.out.println("Tarefas Atualizadas!");
 				Thread.sleep(5000);
 			} catch (Exception e) {
 				try {

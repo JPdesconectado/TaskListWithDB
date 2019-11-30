@@ -62,10 +62,17 @@ public class MainController implements Initializable {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		updateDaemon = new Thread(new UpdateDaemon(listTask));
-		updateDaemon.start();
+		if(!updateDaemon.isAlive()) {
+			updateDaemon.start();
+		}else {
+			updateDaemon.resume();
+		}
+		
+		
 	}
 	
 	@FXML
@@ -95,6 +102,7 @@ public class MainController implements Initializable {
 		updateList();
 	}
 	
+
 	@SuppressWarnings("deprecation")
 	@FXML
 	public void sair() {
@@ -139,50 +147,67 @@ public class MainController implements Initializable {
 	
 	@SuppressWarnings("deprecation")
 	@FXML
-	public void irConfig() throws IOException {
+	public void irConfig(ActionEvent e) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("config.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.stop();
+		updateDaemon.suspend();
 		stage.show();
+		JFXButton btn = (JFXButton) e.getSource();
+		Scene scene2 = btn.getScene();
+		Stage stage2 = (Stage) scene2.getWindow();
+		stage2.close();
+		
 	}
 	
 	@SuppressWarnings("deprecation")
 	@FXML
-	public void irProjeto() throws IOException {
+	public void irProjeto(ActionEvent e) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.stop();
+		updateDaemon.suspend();
 		stage.show();
+		JFXButton btn = (JFXButton) e.getSource();
+		Scene scene2 = btn.getScene();
+		Stage stage2 = (Stage) scene2.getWindow();
+		stage2.close();
 	}
 	
 	@SuppressWarnings("deprecation")
 	@FXML
-	public void irMetas() throws IOException {
+	public void irMetas(ActionEvent e) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("goals.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
-		updateDaemon.stop();
+		updateDaemon.suspend();
 		stage.setScene(scene);
 		stage.show();
+		JFXButton btn = (JFXButton) e.getSource();
+		Scene scene2 = btn.getScene();
+		Stage stage2 = (Stage) scene2.getWindow();
+		stage2.close();
 	}
 	
 	@SuppressWarnings("deprecation")
 	@FXML
-	public void irAjuda() throws IOException {
+	public void irAjuda(ActionEvent e) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("help.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.stop();
+		updateDaemon.suspend();
 		stage.show();
+		JFXButton btn = (JFXButton) e.getSource();
+		Scene scene2 = btn.getScene();
+		Stage stage2 = (Stage) scene2.getWindow();
+		stage2.close();
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -197,7 +222,7 @@ public class MainController implements Initializable {
 		Stage stage2 = (Stage) scene2.getWindow();
 		stage2.close();
 		stage.setScene(scene);
-		updateDaemon.stop();
+		updateDaemon.suspend();
 		stage.show();
 	}
 	

@@ -40,7 +40,7 @@ public class FeedbackController {
 		voltar();
 	}
 	
-	public void voltar() {
+	public void voltar() throws IOException {
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
 		janela.close();
 	}

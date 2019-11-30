@@ -24,7 +24,7 @@ public class UpdateDaemonTP implements Runnable{
 					listViewTp.setItems(null);
 					listViewTp.setItems((ObservableList<TarefaProjeto>) tp);
 				});
-				System.out.println("O daemon atualizou as Tarefas Projetadas");
+				System.out.println("Tarefas dos Projetos Atualizadas!");
 				Thread.sleep(5000);
 			} catch (Exception e) {
 				try {

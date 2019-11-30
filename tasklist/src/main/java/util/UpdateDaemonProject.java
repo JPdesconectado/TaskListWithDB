@@ -25,7 +25,7 @@ public class UpdateDaemonProject implements Runnable {
 					listViewProject.setItems((ObservableList<Project>) projects);
 					
 				});
-				System.out.println("O daemon atualizou os Projetos");
+				System.out.println("Projetos Atualizados!");
 				Thread.sleep(5000);
 			} catch (Exception e) {
 				try {

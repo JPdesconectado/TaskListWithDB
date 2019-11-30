@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXProgressBar?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -21,17 +22,22 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 10 Tarefas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <JFXProgressBar fx:id="proTasks" prefHeight="13.0" prefWidth="360.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="50.0" />
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </JFXProgressBar>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 10 Projetos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="10.0" />
          </GridPane.margin>
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 10 Projetos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 25 Tarefas para Projetos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="50.0" />
+            <Insets top="150.0" />
          </GridPane.margin>
          <font>
             <Font name="Alef Regular" size="12.0" />
@@ -45,7 +51,47 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </JFXButton>
-      <JFXProgressBar fx:id="proProject" prefHeight="13.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <JFXProgressBar fx:id="proTasks" prefHeight="13.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <JFXProgressBar fx:id="proTP" prefHeight="13.0" prefWidth="364.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="180.0" />
+         </GridPane.margin></JFXProgressBar>
+      <JFXProgressBar fx:id="proProject" prefHeight="13.0" prefWidth="371.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin></JFXProgressBar>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar 50 Tarefas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
+      </Text>
+      <TextField fx:id="ObjDiaria" editable="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="130.0" />
+         </GridPane.margin>
+      </TextField>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defina seu próprio Objetivo!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Text>
+      <JFXProgressBar fx:id="ObjDay" prefHeight="13.0" prefWidth="362.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="180.0" />
+         </GridPane.margin>
+      </JFXProgressBar>
+      <JFXButton fx:id="btEditar" onAction="#editar" style="-fx-background-color: #FFA384;" text="Editar" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets left="10.0" top="130.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </GridPane>

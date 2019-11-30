@@ -83,7 +83,13 @@ public class ConfigController implements Initializable{
 		stage.setScene(new Scene(root));
 		stage.show();
 	}
-	public void voltar() {
+	public void voltar() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
 		janela.close();
 	}

@@ -95,7 +95,13 @@ public class PerfilController implements Initializable{
 	}
 
 	@FXML
-	public void voltar() {
+	public void voltar() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
 		janela.close();
 	}
@@ -141,7 +147,6 @@ public class PerfilController implements Initializable{
 		Scene scene2 = btn.getScene();
 		Stage stage2 = (Stage) scene2.getWindow();
 		stage2.close();
-		stage.setScene(scene);
 		stage.setScene(scene);
 		stage.show();
 		
