@@ -77,17 +77,16 @@ public class MainController implements Initializable {
 	
 	@FXML
 	public void delete() {
-		if (!listTask.getItems().isEmpty() || listTask.isPressed()) {
+		if (!listTask.getItems().isEmpty() && listTask.getSelectionModel().getSelectedItem() != null) {
 			new TaskDAO().delete(listTask.getSelectionModel().getSelectedItem());
 		}else {
-			System.out.println("NÃO TEM NADA INSERIDO, COMO VAI APAGAR?");
+			System.err.println("Nada selecionado para deletar.");
 		}
-		updateList();
 	}
 	
 	@FXML
 	public void update() throws IOException {
-		if (!listTask.getItems().isEmpty() || listTask.isPressed()) {
+		if (!listTask.getItems().isEmpty() &&  listTask.getSelectionModel().getSelectedItem() != null) {
 			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetask.fxml"));
 			Parent parent = fxmlLoader.load();
 			Scene scene = new Scene(parent);
@@ -97,9 +96,8 @@ public class MainController implements Initializable {
 			UpdateTaskController controller = (UpdateTaskController) fxmlLoader.getController();
 			controller.selectedTask(listTask.getSelectionModel().getSelectedItem(), this);
 		}else {
-			System.out.println("NÃO SELECIONOU NADA, COMO VAI EDITAR?");
+			System.err.println("Nada selecionado para edição.");
 		}
-		updateList();
 	}
 	
 
@@ -227,7 +225,13 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	public void checkup(){
+	public void checkup() throws UnknownHostException, IOException{
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("loadingnotify.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene = new Scene(parent);
+		Stage stage = new Stage();
+		stage.setScene(scene);
+		stage.show();
 	}
 
 }

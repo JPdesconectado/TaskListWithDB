@@ -1,6 +1,9 @@
 package ifsc.tasklist.controllers;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.UnknownHostException;
+import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 import ifsc.tasklist.dbcontrol.UserDAO;
@@ -37,7 +40,15 @@ public class RegisterUserController{
 	String valor = null;
 	
 	@FXML
-	void register(ActionEvent e) {
+	void register(ActionEvent e) throws UnknownHostException, IOException {
+		List<User> users = new UserDAO().getAll();
+		for(int i = 0; i < users.size(); i++) {
+			if(users.get(i).getUsuario().equals(txtUser.getText())) {
+				System.out.println("Usuário já cadastrado.");
+				return;
+			}
+		}
+		
 		if (valor == null) {
 			User user = new User(txtUser.getText(), txtEmail.getText(), txtPass.getText(), "file:/C:/Users/Shino/Documents/GitHub/TaskListWithDB/tasklist/src/main/resources/ifsc/images/sil.jpg");
 			new UserDAO().add(user);

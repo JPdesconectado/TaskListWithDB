@@ -54,7 +54,6 @@ public class UpdateTaskProjectController implements Initializable{
 		try {
 			List<Project> projects = new ProjectDAO().getAll();
 			for (int j = 0; j < projects.size(); j++) {
-					System.out.println(projects.get(j).getTitulo());
 					cb.getItems().add(projects.get(j).getTitulo());
 					
 				}
@@ -73,6 +72,11 @@ public class UpdateTaskProjectController implements Initializable{
 			tempo = datapega.getValue();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			dataatt = dtf.format(tempo);
+		}
+		
+		if(cb.getValue() == null) {
+			System.err.println("Projeto não selecionado ou vazio.");
+			return;
 		}
 		TarefaProjeto tarefaprojeto = new TarefaProjeto(txtTitulo.getText(), txtDescricao.getText(), cb.getValue(), dataatt);
 		new TarefaProjetoDAO().update(tarefaprojeto);

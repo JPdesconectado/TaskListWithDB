@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import ifsc.tasklist.dbcontrol.TaskDAO;
@@ -37,6 +39,14 @@ public class RegisterTaskController {
 	
 	@FXML
 	public void adicionar(ActionEvent e) throws UnknownHostException, IOException {
+		List<Task> tasks = new TaskDAO().getAll();
+		for (int i = 0; i < tasks.size(); i++) {
+			if(tasks.get(i).getTitulo().equals(txtTitle.getText())) {
+				System.out.println("Tarefa já criada.");
+				return;
+			}
+		}
+		
 		if (datapega.getValue() == null) {
 			tempo = LocalDate.now();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -49,7 +59,8 @@ public class RegisterTaskController {
 		}
 		
 		if (txtTitle.getText().isBlank()) {
-			txtTitle.setText("Texto Substituto para Chave-Primária");
+			System.err.println("Titulo vazio.");
+			return;
 		}
 		
 		

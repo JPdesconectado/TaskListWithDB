@@ -33,6 +33,11 @@ public class UpdateProjectController {
 
 	@FXML
 	public void update(ActionEvent e) {
+		
+		if(txtObjetivo.getText().isBlank()) {
+			System.err.println("Sem Objetivo definido, erro.");
+			return;
+		}
 		Project project = new Project(txtTitulo.getText(), txtObjetivo.getText());
 		new ProjectDAO().update(project);
 		JFXButton btn = (JFXButton) e.getSource();

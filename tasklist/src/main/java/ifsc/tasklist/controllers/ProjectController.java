@@ -81,25 +81,27 @@ public class ProjectController implements Initializable {
 	
 	@FXML
 	public void delete() {
-		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
+		if (!listProject.getItems().isEmpty() && listProject.getSelectionModel().getSelectedItem() != null) {
 			new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
 			
 		}else {
-			System.out.println("Nada selecionado para deletar.");
+			System.err.println("Nada selecionado para deletar.");
 		}
 		
 	}
 	
 	@FXML
 	public void Tdelete() {
-		if (!listTaskProject.getItems().isEmpty() || listTaskProject.isPressed()) {
+		if (!listTaskProject.getItems().isEmpty() && listTaskProject.getSelectionModel().getSelectedItem() != null) {
 			new TarefaProjetoDAO().delete(listTaskProject.getSelectionModel().getSelectedItem());
+		}else {
+			System.err.println("Nada selecionado para deletar.");
 		}
 	}
 	
 	@FXML
 	public void update() throws IOException {
-		if (!listProject.getItems().isEmpty() || listProject.isPressed()) {
+		if (!listProject.getItems().isEmpty() && listProject.getSelectionModel().getSelectedItem() != null) {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updateproject.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
@@ -110,14 +112,14 @@ public class ProjectController implements Initializable {
 		controller.selectedProject(listProject.getSelectionModel().getSelectedItem(), this);
 		
 		}else {
-			System.out.println("Nada selecionado para edição.");
+			System.err.println("Nada selecionado para edição.");
 		}
 		
 	}
 	
 	@FXML
 	public void Tupdate() throws IOException{
-		if (!listTaskProject.getItems().isEmpty() || listTaskProject.isPressed()) {
+		if (!listTaskProject.getItems().isEmpty() && listTaskProject.getSelectionModel().getSelectedItem() != null) {
 			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("updatetaskproject.fxml"));
 			Parent parent = fxmlLoader.load();
 			Scene scene = new Scene(parent);
@@ -128,7 +130,7 @@ public class ProjectController implements Initializable {
 			controller.selectedTaskProject(listTaskProject.getSelectionModel().getSelectedItem(), this);
 			
 		}else {
-			System.out.println("Nada selecionado para edição.");
+			System.err.println("Nada selecionado para edição.");
 		}
 	}
 	
