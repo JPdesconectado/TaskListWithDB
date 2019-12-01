@@ -63,8 +63,14 @@ public class RegisterProjectController {
 
 	}
 	
-	public void voltar() {
+	public void voltar() throws IOException {
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
 		janela.close();
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
+		Parent parent = fxmlLoader.load();
+		Scene scene2 = new Scene(parent);
+		Stage stage2 = new Stage();
+		stage2.setScene(scene2);
+		stage2.show();
 	}
 }

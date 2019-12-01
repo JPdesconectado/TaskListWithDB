@@ -38,6 +38,6 @@
             <Font name="Alef Bold" size="20.0" />
          </font>
       </Label>
-      <JFXProgressBar fx:id="progressBar" prefHeight="13.0" prefWidth="189.0" style="-fx-border-color: #FFA384; -fx-skin: #FFA384;" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <JFXProgressBar fx:id="progressBar" prefHeight="13.0" prefWidth="189.0" style="-fx-border-color: #FFA384;" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
