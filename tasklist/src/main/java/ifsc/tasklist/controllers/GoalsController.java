@@ -78,24 +78,12 @@ public class GoalsController implements Initializable{
 					Obj = String.valueOf(goals.get(0).getObjDiario());
 					ObjDiaria.setText(String.valueOf(goals.get(0).getObjDiario()));
 					
-					List<Task> tasks = new TaskDAO().getAll();
-					qtdeT = tasks.size();
-					qtdeT = qtdeT/2;
-					updateProgress(proTasks, qtdeT);
+
 					
-					List<Project> projects = new ProjectDAO().getAll();
-					qtdeP = projects.size();
-					qtdeP = qtdeP/10;
-					updateProgress(proProject, qtdeP);
 					
-					List<TarefaProjeto> tp = new TarefaProjetoDAO().getAll();
-					qtdeTP = tp.size();
-					qtdeTP = qtdeTP/25;
-					updateProgress(proTP, qtdeTP);
 					
-					qtdeOBJ = tasks.size();
-					qtdeOBJ = qtdeOBJ/Integer.valueOf(Obj);
-					updateProgress(ObjDay, qtdeOBJ);
+					
+					
 					
 					if(proTasks.getProgress() == 1) {
 						TFlag = "true";
@@ -104,23 +92,47 @@ public class GoalsController implements Initializable{
 						
 						
 						
+					}else {
+						List<Task> tasks = new TaskDAO().getAll();
+						qtdeT = tasks.size();
+						qtdeT = qtdeT/2;
+						updateProgress(proTasks, qtdeT);
 					}
 							
 					if(proProject.getProgress() == 1) {
+						
 						PFlag = "true";
 						Goals goal = new Goals(BeginController.name, TFlag, PFlag, TPFlag, Integer.valueOf(ObjDiaria.getText()));
 						new GoalsDAO().update(goal);
+						
+					}else {
+						List<Project> projects = new ProjectDAO().getAll();
+						qtdeP = projects.size();
+						qtdeP = qtdeP/10;
+						updateProgress(proProject, qtdeP);
 					}
 				
 					if(proTP.getProgress() == 1) {
 						TPFlag = "true";
 						Goals goal = new Goals(BeginController.name, TFlag, PFlag, TPFlag, Integer.valueOf(ObjDiaria.getText()));
 						new GoalsDAO().update(goal);
+					}else {
+						List<TarefaProjeto> tp = new TarefaProjetoDAO().getAll();
+						qtdeTP = tp.size();
+						qtdeTP = qtdeTP/25;
+						updateProgress(proTP, qtdeTP);
+					
 					}
 					
 					if(ObjDay.getProgress() == 1) {
 						Goals goal = new Goals(BeginController.name, TFlag, PFlag, TPFlag, Integer.valueOf(ObjDiaria.getText()));
 						new GoalsDAO().update(goal);
+						
+					}else {
+						List<Task> tasks = new TaskDAO().getAll();
+						qtdeOBJ = tasks.size();
+						qtdeOBJ = qtdeOBJ/Integer.valueOf(Obj);
+						updateProgress(ObjDay, qtdeOBJ);
 					}
 			
 			}
@@ -146,7 +158,6 @@ public class GoalsController implements Initializable{
 		}else {
 			
 			Obj = ObjDiaria.getText();
-			System.out.println("OBJ = " + ObjDiaria.getText());
 			Goals goal = new Goals(BeginController.name, TFlag, PFlag, TPFlag, Integer.valueOf(ObjDiaria.getText()));
 			new GoalsDAO().update(goal);
 			List<Task> tasks = new TaskDAO().getAll();

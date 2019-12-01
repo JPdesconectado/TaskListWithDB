@@ -153,7 +153,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.suspend();
+		updateDaemon.stop();
 		stage.show();
 		JFXButton btn = (JFXButton) e.getSource();
 		Scene scene2 = btn.getScene();
@@ -170,7 +170,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.suspend();
+		updateDaemon.stop();
 		stage.show();
 		JFXButton btn = (JFXButton) e.getSource();
 		Scene scene2 = btn.getScene();
@@ -185,7 +185,7 @@ public class MainController implements Initializable {
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
-		updateDaemon.suspend();
+		updateDaemon.stop();
 		stage.setScene(scene);
 		stage.show();
 		JFXButton btn = (JFXButton) e.getSource();
@@ -202,7 +202,7 @@ public class MainController implements Initializable {
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
 		stage.setScene(scene);
-		updateDaemon.suspend();
+		updateDaemon.stop();
 		stage.show();
 		JFXButton btn = (JFXButton) e.getSource();
 		Scene scene2 = btn.getScene();
@@ -222,7 +222,7 @@ public class MainController implements Initializable {
 		Stage stage2 = (Stage) scene2.getWindow();
 		stage2.close();
 		stage.setScene(scene);
-		updateDaemon.suspend();
+		updateDaemon.stop();
 		stage.show();
 	}
 	

@@ -9,13 +9,11 @@ import com.jfoenix.controls.JFXButton;
 import ifsc.tasklist.App;
 import ifsc.tasklist.dbcontrol.UserDAO;
 import ifsc.tasklist.dbentities.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -130,27 +128,15 @@ public class PerfilController implements Initializable{
 	}
 	
 	@FXML
-	public void deletar(ActionEvent e) throws IOException {
-		List<User> users = new UserDAO().getAll();
-		for (int i = 0; i < users.size(); i++) {
-			if(users.get(i).getUsuario().equals(BeginController.name)) {
-				new UserDAO().delete(users.get(i));
-				break;
-			}
-		}
+	public void deletar() throws IOException {
 		
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("begin.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("deleteAccount.fxml"));
 		Parent parent = fxmlLoader.load();
 		Scene scene = new Scene(parent);
 		Stage stage = new Stage();
-		Button btn = (Button) e.getSource();
-		Scene scene2 = btn.getScene();
-		Stage stage2 = (Stage) scene2.getWindow();
-		stage2.close();
 		stage.setScene(scene);
 		stage.show();
-		
-		System.out.println("Conta removida.");
+
 	}
 		
 }
