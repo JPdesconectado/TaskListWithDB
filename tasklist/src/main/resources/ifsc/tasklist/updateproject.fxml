@@ -21,22 +21,22 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField fx:id="txtTitulo" disable="true" editable="false" style="-fx-background-color: #FFA384;" GridPane.columnIndex="1">
+      <TextField fx:id="txtTitulo" disable="true" editable="false" style="-fx-background-color: #0dcc0d;" GridPane.columnIndex="1">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></TextField>
-      <TextField fx:id="txtObjetivo" style="-fx-background-color: #FFA384;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <TextField fx:id="txtObjetivo" style="-fx-background-color: #0dcc0d;" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></TextField>
-      <JFXButton fx:id="btUpdate" onAction="#update" ripplerFill="#f89dc2" style="-fx-background-color: #FFA384;" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <JFXButton fx:id="btUpdate" onAction="#update" ripplerFill="#0dcc0d" style="-fx-background-color: #0dcc0d;" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font>
          <GridPane.margin>
             <Insets />
          </GridPane.margin></JFXButton>
-      <Label style="-fx-background-color: #FFA384;" text="Título do Projeto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label style="-fx-background-color: #0dcc0d;" text="Título do Projeto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font>
@@ -44,7 +44,7 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Label>
-      <Label style="-fx-background-color: #FFA384;" text="Objetivo do Projeto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label style="-fx-background-color: #0dcc0d;" text="Objetivo do Projeto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
@@ -52,7 +52,7 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#ff8181" style="-fx-background-color: #FFA384;" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#ff8181" style="-fx-background-color: #0dcc0d;" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font>

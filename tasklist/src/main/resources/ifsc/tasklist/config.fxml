@@ -21,16 +21,16 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <JFXButton fx:id="btFeedback" onAction="#goFeedback" ripplerFill="#142270" style="-fx-background-color: #e7f2f8;" text="Feedback" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <JFXButton fx:id="btFeedback" onAction="#goFeedback" ripplerFill="#142270" style="-fx-background-color: #FFA384;" text="Feedback" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></JFXButton>
-      <Hyperlink fx:id="link" onAction="#goCalendary" style="-fx-background-color: #e7f2f8;" text="Calendário" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Hyperlink fx:id="link" onAction="#goCalendary" style="-fx-background-color: #FFA384; -fx-text-fill: #000000;" text="Calendário" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font name="Alef Regular" size="18.0" />
          </font>
       </Hyperlink>
-      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #e7f2f8;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#142270" style="-fx-background-color: #FFA384;" text="Voltar" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="10.0" top="10.0" />
          </GridPane.margin>

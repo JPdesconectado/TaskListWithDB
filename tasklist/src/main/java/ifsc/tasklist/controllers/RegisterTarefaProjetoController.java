@@ -10,13 +10,17 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+
+import ifsc.tasklist.App;
 import ifsc.tasklist.dbcontrol.ProjectDAO;
 import ifsc.tasklist.dbcontrol.TarefaProjetoDAO;
 import ifsc.tasklist.dbentities.Project;
 import ifsc.tasklist.dbentities.TarefaProjeto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -100,6 +104,13 @@ public class RegisterTarefaProjetoController implements Initializable{
 			stage.close();
 			Project pj = new Project();
 			pj.addTarefa(tp);
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("project.fxml"));
+			Parent parent = fxmlLoader.load();
+			Scene scene2 = new Scene(parent);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene2);
+			stage2.show();
+
 		
 	}
 	

@@ -47,12 +47,12 @@
             <Image url="@ideia.png" />
          </image>
       </ImageView>
-      <JFXSlider fx:id="avaliacao" max="5.0" min="1.0" showTickLabels="true" style="-fx-background-color: #df9a10;" value="1.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <JFXSlider fx:id="avaliacao" max="5.0" min="1.0" showTickLabels="true" style="-fx-background-color: #FFA384;" value="1.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="50.0" />
          </GridPane.margin>
       </JFXSlider>
-      <JFXCheckBox fx:id="btGostou" checkedColor="#6a8023" text="Você gostou do aplicativo?" unCheckedColor="#df9a10" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <JFXCheckBox fx:id="btGostou" checkedColor="#1cbec9" text="Você gostou do aplicativo?" unCheckedColor="#ffa384" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="130.0" />
          </GridPane.margin>
@@ -60,11 +60,11 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </JFXCheckBox>
-      <JFXTextArea fx:id="comentario" focusColor="#6a8023" unFocusColor="#df9a10" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <JFXTextArea fx:id="comentario" focusColor="#20deff" unFocusColor="#ffa384" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></JFXTextArea>
-      <JFXButton fx:id="btEnviar" onAction="#enviar" ripplerFill="#6a8023" style="-fx-background-color: #df9a10;" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <JFXButton fx:id="btEnviar" onAction="#enviar" ripplerFill="#6a8023" style="-fx-background-color: #FFA384;" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="10.0" />
          </GridPane.margin>
@@ -72,7 +72,7 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#6a8023" style="-fx-background-color: #df9a10;" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <JFXButton fx:id="btVoltar" onAction="#voltar" ripplerFill="#6a8023" style="-fx-background-color: #FFA384;" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="10.0" />
          </GridPane.margin>

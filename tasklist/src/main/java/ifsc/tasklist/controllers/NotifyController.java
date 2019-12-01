@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 public class NotifyController implements Initializable{
 	String tempo;
-	int flag;
 	int flagNew;
 	@FXML
 	GridPane gridpane;
@@ -38,28 +37,27 @@ public class NotifyController implements Initializable{
 		listTask.setItems(null);
 		try {
 			listTask.setItems((ObservableList<Task>) dao.getAll());
-			
+			flagNew = 0;
 			LocalDate data = LocalDate.now();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			tempo = dtf.format(data);
-			flag = listTask.getItems().size();
 			if(listTask.getItems().isEmpty()) {
 				labelTasks.setText("Sem tarefas registradas.");
 			}
-			for (int i = 0; i < listTask.getItems().size(); i++) {
+			int i = 0;
+			while( i < listTask.getItems().size()) {
 				
-				if(listTask.getItems().get(i).getData().equals(tempo)) {
-					flagNew +=1;
-				}else {
+				if(!listTask.getItems().get(i).getData().equals(tempo)) {
 					listTask.getItems().remove(i);
-					
+				}else {
+					flagNew = 1;
+					i++;
 				}
 				
 			}
 			
 			
-			
-			if(flagNew < flag) {
+			if(flagNew != 0) {
 				labelTasks.setText("Temos Tarefas para hoje!");
 				listTask.setOpacity(1);
 				

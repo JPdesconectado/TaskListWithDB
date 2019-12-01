@@ -25,10 +25,22 @@
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <JFXButton fx:id="btOk" onAction="#delete" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: #ffa384;" text="Ok" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <JFXButton fx:id="btVoltar" onAction="#voltar" style="-fx-background-color: #ffa384;" text="Voltar" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-      <Label text="A seguinte conta será apagada:" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Label text="Tem certeza?" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <JFXButton fx:id="btOk" onAction="#delete" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: #ffa384;" text="Ok" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btVoltar" onAction="#voltar" style="-fx-background-color: #ffa384;" text="Voltar" GridPane.columnIndex="5" GridPane.rowIndex="3">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></JFXButton>
+      <Label text="A seguinte conta será apagada:" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></Label>
+      <Label text="Tem certeza?" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></Label>
       <TextField fx:id="user" editable="false" style="-fx-background-color: #ffa384;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="Alef Regular" size="12.0" />

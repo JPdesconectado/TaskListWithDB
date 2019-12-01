@@ -18,11 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import util.UpdateDaemonProject;
-import util.UpdateDaemonTP;
 
 public class ProjectController implements Initializable {
-	private Thread updateDaemon, updateDaemon2;
 	
 	@FXML
 	GridPane gridPane;
@@ -56,10 +53,7 @@ public class ProjectController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		updateDaemon2 = new Thread(new UpdateDaemonTP(listTaskProject));
-		updateDaemon = new Thread(new UpdateDaemonProject(listProject));
-		updateDaemon2.start();
-		updateDaemon.start();
+		updateList();
 		
 	}
 
@@ -73,7 +67,6 @@ public class ProjectController implements Initializable {
 			listProject.setItems((ObservableList<Project>) dao.getAll());
 			listTaskProject.setItems((ObservableList<TarefaProjeto>) dao2.getAll());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -83,6 +76,7 @@ public class ProjectController implements Initializable {
 	public void delete() {
 		if (!listProject.getItems().isEmpty() && listProject.getSelectionModel().getSelectedItem() != null) {
 			new ProjectDAO().delete(listProject.getSelectionModel().getSelectedItem());
+			updateList();
 			
 		}else {
 			System.err.println("Nada selecionado para deletar.");
@@ -94,6 +88,7 @@ public class ProjectController implements Initializable {
 	public void Tdelete() {
 		if (!listTaskProject.getItems().isEmpty() && listTaskProject.getSelectionModel().getSelectedItem() != null) {
 			new TarefaProjetoDAO().delete(listTaskProject.getSelectionModel().getSelectedItem());
+			updateList();
 		}else {
 			System.err.println("Nada selecionado para deletar.");
 		}
@@ -110,6 +105,7 @@ public class ProjectController implements Initializable {
 		stage.show();
 		UpdateProjectController controller = (UpdateProjectController) fxmlLoader.getController();
 		controller.selectedProject(listProject.getSelectionModel().getSelectedItem(), this);
+		
 		
 		}else {
 			System.err.println("Nada selecionado para edição.");
@@ -142,6 +138,8 @@ public class ProjectController implements Initializable {
 		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
+		Stage janela = (Stage) btVoltar.getScene().getWindow();
+		janela.close();
 	}
 	
 	@FXML
@@ -152,9 +150,10 @@ public class ProjectController implements Initializable {
 		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.show();
+		Stage janela = (Stage) btVoltar.getScene().getWindow();
+		janela.close();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void voltar() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
 		Parent parent = fxmlLoader.load();
@@ -163,8 +162,6 @@ public class ProjectController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 		Stage janela = (Stage) btVoltar.getScene().getWindow();
-		updateDaemon2.stop();
-		updateDaemon.stop();
 		janela.close();
 	}
 	

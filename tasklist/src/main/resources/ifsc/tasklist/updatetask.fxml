@@ -24,7 +24,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField fx:id="txtTitulo" disable="true" style="-fx-background-color: #E7D5C2;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <TextField fx:id="txtTitulo" disable="true" style="-fx-background-color: #39cae4;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="20.0" />
          </GridPane.margin>
@@ -32,12 +32,12 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </TextField>
-      <DatePicker fx:id="datapega" style="-fx-background-color: #E7D5C2;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <JFXTextArea fx:id="txtDescricao" focusColor="#ff0606" unFocusColor="#e7d5c2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <DatePicker fx:id="datapega" style="-fx-background-color: #39cae4;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <JFXTextArea fx:id="txtDescricao" focusColor="#ff0606" unFocusColor="#39cae4" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></JFXTextArea>
-      <JFXButton fx:id="btUpdate" onAction="#update" ripplerFill="#fc050d" style="-fx-background-color: #E7D5C2;" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <JFXButton fx:id="btUpdate" onAction="#update" ripplerFill="#39cae4" style="-fx-background-color: #39cae4;" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="5.0" />
          </GridPane.margin>
@@ -45,14 +45,23 @@
             <Font name="Alef Regular" size="12.0" />
          </font>
       </JFXButton>
-      <Label style="-fx-background-color: #E7D5C2;" text="Descrição da Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Label style="-fx-background-color: #E7D5C2;" text="Data da Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label style="-fx-background-color: #39cae4;" text="Descrição da Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></Label>
+      <Label style="-fx-background-color: #39cae4;" text="Data da Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font>
       </Label>
-      <Label style="-fx-background-color: #E7D5C2;" text="Nome da Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <JFXButton fx:id="btVoltar" onAction="#voltar" style="-fx-background-color: #E7D5C2;" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Label style="-fx-background-color: #39cae4;" text="Nome da Tarefa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Alef Regular" size="12.0" />
+         </font></Label>
+      <JFXButton fx:id="btVoltar" onAction="#voltar" style="-fx-background-color: #39cae4;" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font>

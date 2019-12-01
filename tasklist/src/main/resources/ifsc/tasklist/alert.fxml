@@ -48,7 +48,7 @@
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></Text>
-      <JFXButton fx:id="btEntendido" onAction="#voltar" ripplerFill="#0a328d" style="-fx-background-color: #e7f2f8;" text="Entendido!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <JFXButton fx:id="btEntendido" onAction="#voltar" ripplerFill="#0a328d" style="-fx-background-color: #FFA384;" text="Entendido!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font name="Alef Regular" size="12.0" />
          </font></JFXButton>

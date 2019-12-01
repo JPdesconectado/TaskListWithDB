@@ -22,6 +22,6 @@
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <JFXProgressBar fx:id="progressBar" prefHeight="14.0" prefWidth="251.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+      <JFXProgressBar fx:id="progressBar" prefHeight="14.0" prefWidth="251.0" progress="0.0" style="-fx-border-color: #FFA384;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

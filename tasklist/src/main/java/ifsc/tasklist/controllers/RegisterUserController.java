@@ -48,6 +48,14 @@ public class RegisterUserController{
 				return;
 			}
 		}
+		if(txtUser.getText().isBlank()) {
+			System.err.println("Usuário Obrigatório.");
+			return;
+		}
+		if(txtPass.getText().isBlank()) {
+			System.err.println("Senha Obrigatória.");
+			return;
+		}
 		
 		if (valor == null) {
 			User user = new User(txtUser.getText(), txtEmail.getText(), txtPass.getText(), "file:/C:/Users/Shino/Documents/GitHub/TaskListWithDB/tasklist/src/main/resources/ifsc/images/sil.jpg");
