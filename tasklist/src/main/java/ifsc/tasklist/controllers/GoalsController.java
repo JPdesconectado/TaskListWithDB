@@ -166,13 +166,17 @@ public class GoalsController implements Initializable{
 			ObjDiaria.setEditable(true);
 		}else {
 			
+			List<Task> tasks = new TaskDAO().getAll();
 			Obj = ObjDiaria.getText();
 			Goals goal = new Goals(BeginController.name, TFlag, PFlag, TPFlag, Integer.valueOf(ObjDiaria.getText()));
 			new GoalsDAO().update(goal);
-			List<Task> tasks = new TaskDAO().getAll();
 			qtdeOBJ = tasks.size();
-			qtdeOBJ = qtdeOBJ/Integer.valueOf(Obj);
-			updateProgress(ObjDay, qtdeOBJ);
+			
+			if(qtdeOBJ != 0) {
+				qtdeOBJ = qtdeOBJ/Integer.valueOf(Obj);
+				updateProgress(ObjDay, qtdeOBJ);
+			}
+
 			if(ObjDay.getProgress() < 1) {
 				imgObj.setOpacity(0);
 			}else {
