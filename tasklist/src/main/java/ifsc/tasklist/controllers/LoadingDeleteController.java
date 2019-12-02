@@ -9,11 +9,13 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXProgressBar;
 
 import ifsc.tasklist.App;
+import ifsc.tasklist.dbcontrol.FeedbackDAO;
 import ifsc.tasklist.dbcontrol.GoalsDAO;
 import ifsc.tasklist.dbcontrol.ProjectDAO;
 import ifsc.tasklist.dbcontrol.TarefaProjetoDAO;
 import ifsc.tasklist.dbcontrol.TaskDAO;
 import ifsc.tasklist.dbcontrol.UserDAO;
+import ifsc.tasklist.dbentities.Feedback;
 import ifsc.tasklist.dbentities.Goals;
 import ifsc.tasklist.dbentities.Project;
 import ifsc.tasklist.dbentities.TarefaProjeto;
@@ -80,6 +82,13 @@ public class LoadingDeleteController implements Initializable {
 				new TarefaProjetoDAO().delete(tps.get(i));
 			}
 			
+		}
+		
+		List<Feedback> fb = new FeedbackDAO().getAll();
+		for(int i = 0; i < fb.size(); i++) {
+			if(!fb.isEmpty()) {
+				new FeedbackDAO().delete(fb.get(i));
+			}
 		}
 		
 		Scene scene2 = progressBar.getScene();
