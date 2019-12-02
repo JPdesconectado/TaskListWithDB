@@ -93,17 +93,17 @@ public class GoalsController implements Initializable{
 					
 					List<Task> tasks = new TaskDAO().getAll();
 					qtdeT = tasks.size();
-					qtdeT = qtdeT/6;
+					qtdeT = qtdeT/50;
 					updateProgress(proTasks, qtdeT);
 					
 					List<Project> projects = new ProjectDAO().getAll();
 					qtdeP = projects.size();
-					qtdeP = qtdeP/2;
+					qtdeP = qtdeP/10;
 					updateProgress(proProject, qtdeP);
 					
 					List<TarefaProjeto> tp = new TarefaProjetoDAO().getAll();
 					qtdeTP = tp.size();
-					qtdeTP = qtdeTP/3;
+					qtdeTP = qtdeTP/25;
 					updateProgress(proTP, qtdeTP);					
 					
 					qtdeOBJ = tasks.size();
@@ -157,6 +157,9 @@ public class GoalsController implements Initializable{
 	
 	}
 	
+	public void updateList() {
+		
+	}
 	@FXML
 	private void editar() throws UnknownHostException, IOException {
 		if(!ObjDiaria.isEditable()) {
@@ -170,6 +173,11 @@ public class GoalsController implements Initializable{
 			qtdeOBJ = tasks.size();
 			qtdeOBJ = qtdeOBJ/Integer.valueOf(Obj);
 			updateProgress(ObjDay, qtdeOBJ);
+			if(ObjDay.getProgress() < 1) {
+				imgObj.setOpacity(0);
+			}else {
+				imgObj.setOpacity(1);
+			}
 		}
 	}
 }

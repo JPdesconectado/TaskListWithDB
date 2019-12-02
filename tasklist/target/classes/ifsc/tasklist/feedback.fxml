@@ -39,12 +39,12 @@
          </font></Text>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
-            <Image url="@ideia.png" />
+            <Image url="@../images/ideia.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <image>
-            <Image url="@ideia.png" />
+            <Image url="@../images/ideia.png" />
          </image>
       </ImageView>
       <JFXSlider fx:id="avaliacao" max="5.0" min="1.0" showTickLabels="true" style="-fx-background-color: #FFA384;" value="1.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
