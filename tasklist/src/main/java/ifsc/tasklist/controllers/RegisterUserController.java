@@ -71,8 +71,7 @@ public class RegisterUserController{
 		Scene scene = btn.getScene();
 		Stage stage = (Stage) scene.getWindow();
 		stage.close();
-		
-		System.out.println(user.getUsuario() + user.getSenha());
+	
 	}
 	}
 	
